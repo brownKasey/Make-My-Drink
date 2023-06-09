@@ -5,22 +5,18 @@ header{
     color: rebeccapurple;
 }
 
-.body{
-    display: flex;
-    flex-direction: row;
-    justify-content:center;
-}
 .input{
     background-color: blanchedalmond;
     width: 800px;
     text-align: center;
-    position:relative;
-   
-
 }
 
 .button{
     width: 100px;
     
     background-color: lightcyan;
+}
+
+.container {
+    display: flex;
 }
