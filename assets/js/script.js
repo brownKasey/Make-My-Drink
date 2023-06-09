@@ -15,7 +15,7 @@ function getCocktailResults() {
 
 function getCocktailInfo(cocktail) {
     var requestUrl = 'https://thecocktaildb.com/api/json/v1/1/filter.php?s=' + cocktail;
-    // var requestUrl = 'https://thecocktaildb.com/api/json/v1/1/filter.php?i=' + cocktail; this works if your searching by alcohol type (gin, vodka, etc.)
+    // var requestUrl = 'https://thecocktaildb.com/api/json/v1/1/filter.php?i=' + cocktail; this works if you're searching by alcohol type (gin, vodka, etc.)
   fetch(requestUrl)
     .then(function (response) {
       console.log(response.status);
