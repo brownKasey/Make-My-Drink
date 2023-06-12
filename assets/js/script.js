@@ -36,7 +36,7 @@ function getCocktailResults(cocktail) {
 }
 
 function displayCocktails(data) {
-    startContainer.classList.add('hidden');
+    startContainer.setAttribute('class', 'hidden');
     resultsContainer.classList.remove('hidden');
     for (var i = 0; i < data.drinks.length; i++) {
         
@@ -75,11 +75,9 @@ function displayCocktails(data) {
       }
 }
 
-function displaySelectedCocktail(event, data) {
-    var events = event.target;
+function displaySelectedCocktail() {
     resultsContainer.classList.add('hidden');
     infoContainer.classList.remove('hidden');
-
 }
 
 // Event listener for search button
