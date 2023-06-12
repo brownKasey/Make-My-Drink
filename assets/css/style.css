@@ -24,3 +24,33 @@ header{
     background-color: lightcyan;
 }
 
+/* Hide container */
+.hidden {
+    display: none;
+}
+
+.results-container {
+    min-height: 700px;
+}
+
+.card-container {
+    flex-wrap: wrap;
+}
+
+.card {
+    box-shadow: none; /* Remove white border around card */
+}
+
+.card-header {
+    background-color: #ec881d;
+}
+
+.card-header-title {
+    color: #ffff;
+}
+
+.recipe-button {
+    background-color: #ec881d;
+    color: #ffff;
+}
+
