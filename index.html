@@ -8,18 +8,35 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">   
     <title>Make My Drink</title>
-    
 </head>
 <body>
     <header>
         <h1> Welcome to Make My Drink</h1>
     </header>
-    <div class="body">
+    <!-------------------- Container to hold search bar, checkboxes and previous searches ------------------->
+    <section class="section is-medium search-container">
+        <div class="container">
+            <input id="inputCocktail" class="input" type="text" placeholder="Enter your drink name!!">
+            <button id="search-button" class="button is-responsive">Search</button>
+        </div>
+    </section>
+    <!---------------------------------------- Container for ? ---------------------------------------------->
+    <section class="section start-container">
+        <h1 class="title">Main Page</h1>
+      </section>
 
-        <input class="input" type="text" placeholder="Enter your drink name!!">
-        <button class="button is-responsive">Search</button>
-    </div>
-    
+    <!------------------------------- Container to hold search results -------------------------------------->
+    <section class="section is-medium results-container hidden">
+        <div class="columns card-container"></div>
+    </section>
+
+    <!------------------------- Container to hold recipe and nutrition info --------------------------------->
+    <section class="section is-medium info-container hidden">
+        <h1 class="title">Selected Cocktail Page</h1>
+
+    </section>
+
+
     <script src="./assets/js/script.js"></script>    
 </body>
 </html>
