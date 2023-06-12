@@ -1,32 +1,41 @@
 var searchButton = document.getElementById('search-button'); 
-cocktailName = document.querySelector('#inputCocktail');
-var container = document.querySelector('.result-container');
+var userInput = document.querySelector('#inputCocktail');
+var startContainer = document.querySelector('.start-container');
 
-// 
-function getCocktailResults() {
-    console.log('Testing search button');
+function validateUserInput() {
+    //console.log('Testing search button');
 
-    if (cocktailName.value) {
-        getCocktailInfo(cocktailName.value);
+    if (userInput.value) {
+        getCocktailResults(userInput.value);
+    // TO-DO: Swap out alert for a modal
     } else {
-        alert('Please enter a cocktail name'); // Change this to a modal
+        alert('Please enter a cocktail name');
     }
 };
 
-function getCocktailInfo(cocktail) {
-    var requestUrl = 'https://thecocktaildb.com/api/json/v1/1/filter.php?s=' + cocktail;
-    // var requestUrl = 'https://thecocktaildb.com/api/json/v1/1/filter.php?i=' + cocktail; this works if your searching by alcohol type (gin, vodka, etc.)
-  fetch(requestUrl)
+function getCocktailResults(cocktail) {
+    var requestUrl = 'https://thecocktaildb.com/api/json/v2/9973533/search.php?s=' + cocktail;
+    fetch(requestUrl)
     .then(function (response) {
       console.log(response.status);
-      console.log(response);
       return response.json();
+      // TO-DO: Add error handling
     })
     .then(function (data) {
         console.log(data);
-        console.log(data.drinks[2].strDrink); // testing
+        // Check if fetch fetched any results
+        // If not, display message
+        // Clear search results from cards container
+        cardsContainer.innerHTML = '';
+        displayCocktails(data);
     });
 }
 
+function displayCocktails(data) {
+
+}
+
 // Event listener for search button
-searchButton.addEventListener('click', getCocktailResults);
+searchButton.addEventListener('click', validateUserInput);
+
+
