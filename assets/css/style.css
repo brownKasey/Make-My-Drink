@@ -31,6 +31,7 @@ footer{
 
 .search-button{
     width: 100px;
+    background-color: lightcyan;
     position: relative;
     bottom: 150px;
     left: 240px;
@@ -45,7 +46,7 @@ footer{
     max-height: 300px;
 }
 
-.start-container, .results-container, .selected-container {
+.start-container, .results-container, .info-container {
     min-height: 700px;
 }
 
