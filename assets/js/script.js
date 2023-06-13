@@ -29,6 +29,7 @@ function getCocktailResults(cocktail) {
         console.log(data);
         // Check if fetch fetched any results
         // If not, display message
+
         // Clear search results from cards container
         cardsContainer.innerHTML = '';
         displayCocktails(data);
@@ -63,22 +64,26 @@ function displayCocktails(data) {
         imageEl.setAttribute('src', data.drinks[i].strDrinkThumb);
 
         // Create button
-        var recipeButton = document.createElement('button');
+        var recipeButton = document.createElement('a');
         recipeButton.textContent = "GET RECIPE";
         recipeButton.classList.add('button', 'recipe-button', 'is-fullwidth');
+        recipeButton.setAttribute('href', 'selected.html');
+        recipeButton.setAttribute('target', '_blank'); // open linked document in new window
+        recipeButton.setAttribute('idDrink', data.drinks[i].idDrink);
+        //console.log(recipeButton);
 
         headerEl.append(cardTitle);
         cardEl.append(headerEl, imageEl, recipeButton);
         cardsContainer.append(cardEl);
-        // Event listener for recipe buttons
-        recipeButton.addEventListener('click', displaySelectedCocktail);
       }
-}
-
-function displaySelectedCocktail() {
-    resultsContainer.classList.add('hidden');
-    infoContainer.classList.remove('hidden');
 }
 
 // Event listener for search button
 searchButton.addEventListener('click', validateUserInput);
+
+resultsContainer.addEventListener('click', function(event) {
+    var e = event.target;
+    drinkID = e.getAttribute('idDrink');
+    localStorage.setItem('drinkID', JSON.stringify(drinkID));
+    //console.log(drinkID);
+})
