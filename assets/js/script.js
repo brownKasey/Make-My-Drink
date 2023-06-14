@@ -4,7 +4,7 @@ var startContainer = document.querySelector('.start-container');
 var resultsContainer = document.querySelector('.results-container');
 var cardsContainer = document.querySelector('.card-container');
 
-// 
+// monika's code
 function validateUserInput() {
     //console.log('Testing search button');
 
@@ -76,6 +76,58 @@ function displayCocktails(data) {
         cardsContainer.append(cardEl);
       }
 }
+
+// kasey's code
+
+function getNutritonalFacts() {
+    var apiUrl = 'https://trackapi.nutritionix.com/v2/natural/nutrients/'
+    //https://trackapi.nutritionix.com/v2/natural/nutrients = actal url
+    //https://trackapi.nutritionix.com/v2/search/instant?query= test url
+    console.log(apiUrl);
+    var ingredients = cocktailName.value;
+    var myInit = {
+        method: "POST",
+        headers: {
+            'content-type': 'application/json',
+
+            'x-app-id': '5cd39341',
+            'x-app-key': 'bda13b00f69ec6525e8dcd738a635a2a',
+            'x-remote-user-id': '0',
+        },
+        body: JSON.stringify({
+            "query": ingredients,
+        }),
+    };
+    fetch (apiUrl, myInit)
+    .then(function (response) {
+        console.log(response);
+        return response.json();
+
+      })
+      .then(function (data) {
+        console.log(data);
+        console.log(data.foods[0].nf_calories);
+    });
+}
+//1 oz white creme de cacao
+/*function getExerciseFacts(){
+    var apiUrl = ''
+    fetch (apiUrl, {
+        headers: {
+            'content-type': 'application/json',
+            'x-app-id': '5cd39341',
+            'x-app-key': 'bda13b00f69ec6525e8dcd738a635a2a',
+            'x-remote-user-id': '0',
+        }
+    })
+    .then(function (response) {
+        console.log(response.status);
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+    });
+}*/
 
 // Event listener for search button
 searchButton.addEventListener('click', validateUserInput);
