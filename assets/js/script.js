@@ -3,7 +3,6 @@ var cocktailName = document.querySelector('#inputCocktail');
 var startContainer = document.querySelector('.start-container');
 var resultsContainer = document.querySelector('.results-container');
 var cardsContainer = document.querySelector('.card-container');
-var infoContainer = document.querySelector('.info-container');
 
 // 
 function validateUserInput() {
@@ -30,14 +29,14 @@ function getCocktailResults(cocktail) {
         // Check if fetch fetched any results
         // If not, display message
 
-        // Clear search results from cards container
+        // Clear previous search results from cards container
         cardsContainer.innerHTML = '';
         displayCocktails(data);
     });
 }
 
 function displayCocktails(data) {
-    startContainer.setAttribute('class', 'hidden');
+    startContainer.classList.add('class', 'hidden');
     resultsContainer.classList.remove('hidden');
     for (var i = 0; i < data.drinks.length; i++) {
         

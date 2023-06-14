@@ -2,12 +2,6 @@
     box-sizing: border-box;
 }
 
-body{
-    background-image: url(./3442785.jpg);
-    background-color: #cccccc;
-    background-size: cover;
-}
-
 header{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 40px;
@@ -47,7 +41,7 @@ footer{
 }
 
 .start-container, .results-container, .info-container {
-    min-height: 700px;
+    min-height: 500px;
 }
 
 .card-container {
@@ -71,12 +65,8 @@ footer{
     color: #ffff;
 }
 
-footer{
-    text-align: center;
-}
-body{
-    background-image: url(./3442785.jpg);
-    background-color: #cccccc;
+figure {
+    background-image: url(../images/cocktail_array.png);
     background-size: cover;
 }
 
