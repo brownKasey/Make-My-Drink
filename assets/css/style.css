@@ -1,6 +1,6 @@
 * {
-    margin: 0px;
-    padding: 0px;
+    box-sizing: border-box;
+
 }
 
 header{
@@ -55,8 +55,8 @@ button.is-fullwidth {
     display: none;
 }
 
-.results-container {
-    min-height: 700px;
+.start-container, .results-container, .info-container {
+    min-height: 500px;
 }
 
 .card-container {
@@ -87,4 +87,9 @@ body{
     background-image: url(./pexels-energepiccom-3021394.jpeg);
     background-color: #cccccc;
     background-size:cover;
+
+#search-button {
+    position: relative;
+    bottom: 150px;
+    left: 240px;
 }
