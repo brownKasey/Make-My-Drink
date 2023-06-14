@@ -1,11 +1,6 @@
 * {
-    box-sizing: border-box;
-}
-
-body{
-    background-image: url(./3442785.jpg);
-    background-color: #cccccc;
-    background-size: cover;
+    margin: 0px;
+    padding: 0px;
 }
 
 header{
@@ -16,12 +11,9 @@ header{
     color: rebeccapurple;
 }
 
-footer{
-    text-align: center;
-}
-
 .input{
-    background-color: blanchedalmond;
+    background-color: rgba(10,10,10,.1);
+    color: #141414;
     width: 800px;
     text-align: center;
     position: relative;
@@ -29,24 +21,41 @@ footer{
     left:200px;
 }
 
-.search-button{
+.button{
     width: 100px;
-    background-color: lightcyan;
+    background-color:rgba(10,10,10,.1);
     position: relative;
     bottom: 150px;
-    left: 240px;
+    left:240px;
 }
 
+.hero.is-primary {
+    background-color: rgba(10,10,10,.1);
+    color: #fff;
+}
+
+.hero {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+button.is-fullwidth {
+    display: flex;
+    top: 5px;
+    width: 100%;
+    position: relative;
+    left: 0px;
+    flex-wrap: nowrap;
+    align-items: baseline;
+}
 /* Hide container */
 .hidden {
     display: none;
 }
 
-.search-container {
-    max-height: 300px;
-}
-
-.start-container, .results-container, .info-container {
+.results-container {
     min-height: 700px;
 }
 
@@ -75,13 +84,7 @@ footer{
     text-align: center;
 }
 body{
-    background-image: url(./3442785.jpg);
+    background-image: url(./pexels-energepiccom-3021394.jpeg);
     background-color: #cccccc;
-    background-size: cover;
-}
-
-#search-button {
-    position: relative;
-    bottom: 150px;
-    left: 240px;
+    background-size:cover;
 }
