@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+
 }
 
 header {
@@ -14,7 +15,7 @@ footer {
     text-align: center;
 }
 
-.input {
+.input{
     background-color: rgba(10,10,10,.1);
     color: #141414;
     width: 800px;
@@ -22,14 +23,6 @@ footer {
     position: relative;
     bottom: 150px;
     left:200px;
-}
-
-#search-button {
-    width: 100px;
-    background-color:rgba(10,10,10,.1);
-    position: relative;
-    bottom: 150px;
-    left:240px;
 }
 
 .hero.is-primary {
@@ -58,14 +51,13 @@ footer {
 .hidden {
     display: none;
 }
-
+  
 .search-container {
     height: 300px;
 }
-
+  
 .start-container, .results-container, .info-container {
     min-height: 500px;
-    padding: 10px;
 }
 
 .card-container {
