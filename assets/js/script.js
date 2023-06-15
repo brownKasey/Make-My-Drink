@@ -43,7 +43,7 @@ function displayCocktails(data) {
         // Create container to hold card components
         // Add classes to display cards in a 3-column layout
         var cardEl = document.createElement('div');
-        cardEl.classList.add('column', 'is-one-third', 'card');
+        cardEl.classList.add('column', 'is-3', 'card');
 
         // Create header component of card
         var headerEl = document.createElement('h4');
