@@ -3,12 +3,16 @@
 
 }
 
-header{
+header {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 40px;
     height: 180px;
     text-align: center;
     color: rebeccapurple;
+}
+
+footer {
+    text-align: center;
 }
 
 .input{
@@ -19,14 +23,6 @@ header{
     position: relative;
     bottom: 150px;
     left:200px;
-}
-
-.button{
-    width: 100px;
-    background-color:rgba(10,10,10,.1);
-    position: relative;
-    bottom: 150px;
-    left:240px;
 }
 
 .hero.is-primary {
@@ -41,7 +37,7 @@ header{
     justify-content: space-between;
 }
 
-button.is-fullwidth {
+#search-button.is-fullwidth {
     display: flex;
     top: 5px;
     width: 100%;
@@ -50,11 +46,16 @@ button.is-fullwidth {
     flex-wrap: nowrap;
     align-items: baseline;
 }
+
 /* Hide container */
 .hidden {
     display: none;
 }
-
+  
+.search-container {
+    height: 300px;
+}
+  
 .start-container, .results-container, .info-container {
     min-height: 500px;
 }
@@ -80,16 +81,8 @@ button.is-fullwidth {
     color: #ffff;
 }
 
-footer{
-    text-align: center;
-}
-body{
+/*body {
     background-image: url(./pexels-energepiccom-3021394.jpeg);
     background-color: #cccccc;
     background-size:cover;
-
-#search-button {
-    position: relative;
-    bottom: 150px;
-    left: 240px;
-}
+}*/
