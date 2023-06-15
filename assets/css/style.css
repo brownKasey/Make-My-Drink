@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-header{
+header {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     font-size: 40px;
     height: 180px;
@@ -10,12 +10,13 @@ header{
     color: rebeccapurple;
 }
 
-footer{
+footer {
     text-align: center;
 }
 
-.input{
-    background-color: blanchedalmond;
+.input {
+    background-color: rgba(10,10,10,.1);
+    color: #141414;
     width: 800px;
     text-align: center;
     position: relative;
@@ -23,12 +24,34 @@ footer{
     left:200px;
 }
 
-.search-button{
+#search-button {
     width: 100px;
-    background-color: lightcyan;
+    background-color:rgba(10,10,10,.1);
     position: relative;
     bottom: 150px;
-    left: 240px;
+    left:240px;
+}
+
+.hero.is-primary {
+    background-color: rgba(10,10,10,.1);
+    color: #fff;
+}
+
+.hero {
+    align-items: stretch;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+#search-button.is-fullwidth {
+    display: flex;
+    top: 5px;
+    width: 100%;
+    position: relative;
+    left: 0px;
+    flex-wrap: nowrap;
+    align-items: baseline;
 }
 
 /* Hide container */
@@ -37,11 +60,12 @@ footer{
 }
 
 .search-container {
-    max-height: 300px;
+    height: 300px;
 }
 
 .start-container, .results-container, .info-container {
     min-height: 500px;
+    padding: 10px;
 }
 
 .card-container {
@@ -65,13 +89,8 @@ footer{
     color: #ffff;
 }
 
-figure {
-    background-image: url(../images/cocktail_array.png);
-    background-size: cover;
-}
-
-#search-button {
-    position: relative;
-    bottom: 150px;
-    left: 240px;
-}
+/*body {
+    background-image: url(./pexels-energepiccom-3021394.jpeg);
+    background-color: #cccccc;
+    background-size:cover;
+}*/
