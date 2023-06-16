@@ -10,6 +10,36 @@
     <title>Make My Drink</title>
 </head>
 <body>
+
+  
+
+  <!--------------------------------------- Container for search results ---------------------------------->
+  <section class="section is-medium results-container hidden">
+    <div class="columns card-container"></div>
+  </section>
+  
+    <section class="section is-medium info-container hidden">
+      <h1 class="title">Selected Cocktail Page</h1>
+    </section>
+
+    <div id="modal-container" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <h2 class="title">Wait</h2>
+                <p>Please enter a cocktail name.</p>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+  
+  <footer>
+    <section class="hero is-small is-primary">
+      <div class="hero-body">
+        <p class="title">Thank you for visiting!!</p>
+      </div>
+  <!-------------------- Header ------------------->
+
   <header>
     <section class="hero is-small is-primary">
       <div class="hero-body">
@@ -17,7 +47,17 @@
         <p class="subtitle">FIT AND FUN</p>
       </div>
     </section>
-  </header>
+  </header>      
+ <!-------------------- Confirmation Page ------------------->
+  
+ <div id="myModal" class="modal modal-large">
+  <div class="modal-content">
+      <h1>Age Confirmation</h1>
+      <h1>Are you 21 years of age or older?</h1>
+      <button id="confirmYes">Yes</button>
+      <button id="confirmNo">No</button>
+  </div>
+</div>
 
   <!-------------------- Container for search bar, search filters and previous searches ------------------->
   <section class="section is-medium search-container">
@@ -26,31 +66,45 @@
         <button id="search-button" class="button is-responsive">Search</button>
     </div>
   </section>
+    
 
   <!---------------------------------------- Container for image? ----------------------------------------->
   <section class="section start-container">
     <h1 class="title">Main Page</h1>
+    <button id="modal-button" class="button">Open Modal</button>
+</section>
+
+  
+
+  <!--------------------------------------- Container for search results ---------------------------------->
+  <section class="section is-medium results-container hidden">
+    <div class="columns card-container"></div>
   </section>
-
-    <!------------------------------- Container to hold search results -------------------------------------->
-    <section class="section is-medium results-container hidden">
-        <div class="columns card-container"></div>
-    </section>
-
-    <!------------------------- Container to hold recipe and nutrition info --------------------------------->
+  
     <section class="section is-medium info-container hidden">
-        <h1 class="title">Selected Cocktail Page</h1>
-
+      <h1 class="title">Selected Cocktail Page</h1>
     </section>
-<footer>
-    <section class="hero is-small is-primary">
-        <div class="hero-body">
-          <p class="title">
-            Thank you for visiting!!
-          </p>
+
+    <div id="modal-container" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <h2 class="title">Wait</h2>
+                <p>Please enter a cocktail name.</p>
+            </div>
         </div>
-      </section>
-</footer>
-    <script src="./assets/js/script.js"></script>    
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+  
+  <footer>
+    <section class="hero is-small is-primary">
+      <div class="hero-body">
+        <p class="title">Thank you for visiting!!</p>
+      </div>
+    </section>
+  </footer>
+    <script src="./assets/js/script.js"></script>   
+  
+
 </body>
 </html>

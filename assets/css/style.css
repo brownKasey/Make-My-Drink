@@ -1,6 +1,15 @@
-* {
+*{
     box-sizing: border-box;
+}
 
+body{
+    background-color: #cccccc;
+    background-size: cover;
+}
+
+body{
+    background-color: #cccccc;
+    background-size: cover;
 }
 
 header {
@@ -11,7 +20,7 @@ header {
     color: rebeccapurple;
 }
 
-footer {
+footer{
     text-align: center;
 }
 
@@ -25,39 +34,25 @@ footer {
     left:200px;
 }
 
-.hero.is-primary {
-    background-color: rgba(10,10,10,.1);
-    color: #fff;
-}
-
-.hero {
-    align-items: stretch;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-#search-button.is-fullwidth {
-    display: flex;
-    top: 5px;
-    width: 100%;
+.search-button{
+    width: 100px;
+    background-color: lightcyan;
     position: relative;
-    left: 0px;
-    flex-wrap: nowrap;
-    align-items: baseline;
+    bottom: 150px;
+    left: 240px;
 }
 
 /* Hide container */
 .hidden {
     display: none;
 }
-  
+
 .search-container {
-    height: 300px;
+    max-height: 300px;
 }
-  
+
 .start-container, .results-container, .info-container {
-    min-height: 500px;
+    min-height: 700px;
 }
 
 .card-container {
@@ -81,8 +76,28 @@ footer {
     color: #ffff;
 }
 
-/*body {
-    background-image: url(./pexels-energepiccom-3021394.jpeg);
+footer{
+    text-align: center;
+}
+body{
+    background-image: url(./3442785.jpg);
     background-color: #cccccc;
-    background-size:cover;
-}*/
+    background-size: cover;
+}
+
+#search-button {
+    position: relative;
+    bottom: 150px;
+    left: 240px;
+}
+.modal {  /* added the modal to the search button.*/
+    display: none;
+    background-color: rgb(24, 17, 231);
+    
+    
+}
+#modal-button{
+
+    display: none;
+}
+

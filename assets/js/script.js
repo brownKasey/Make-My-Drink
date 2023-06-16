@@ -3,6 +3,13 @@ var cocktailName = document.querySelector('#inputCocktail');
 var startContainer = document.querySelector('.start-container');
 var resultsContainer = document.querySelector('.results-container');
 var cardsContainer = document.querySelector('.card-container');
+var infoContainer = document.querySelector('.info-container');
+var modalContainer = document.getElementById('modal-container');
+var modalButton = document.getElementById('modal-button');
+var modal = document.getElementById("myModal");
+var confirmYes = document.getElementById("confirmYes");
+var confirmNo = document.getElementById("confirmNo");
+var ageConfirmed = localStorage.getItem("ageConfirmed");
 
 // 
 function validateUserInput() {
@@ -12,7 +19,7 @@ function validateUserInput() {
         getCocktailResults(cocktailName.value);
     // TO-DO: Swap out alert for a modal
     } else {
-        alert('Please enter a cocktail name');
+        modalContainer.style.display = 'block'; // Replaced alert with modalContainer
     }
 };
 
@@ -80,9 +87,37 @@ function displayCocktails(data) {
 // Event listener for search button
 searchButton.addEventListener('click', validateUserInput);
 
-resultsContainer.addEventListener('click', function(event) {
-    var e = event.target;
-    drinkID = e.getAttribute('idDrink');
-    localStorage.setItem('drinkID', JSON.stringify(drinkID));
-    //console.log(drinkID);
-})
+// Added Modal 
+
+modalButton.addEventListener('click', () => {
+   
+});
+
+var closeButton = modalContainer.querySelector('.modal-close');
+closeButton.addEventListener('click', () => {
+    modalContainer.style.display = 'none';
+});
+// Added a confirm page modal & Local Stroage
+if (ageConfirmed === "true") {
+    showContent();
+} else {
+    modal.style.display = "block";
+}
+
+confirmYes.onclick = function() {
+    // User clicked "Yes" button
+    localStorage.setItem("ageConfirmed", "true");
+    modal.style.display = "none";
+    showContent();
+    
+}
+
+confirmNo.onclick = function() {
+    // User clicked "No" button
+    localStorage.setItem("ageConfirmed", "false");
+    modal.style.display = "none";
+    window.location.href = "https://giphy.com/gifs/G7y1nEq4I251TKMFFZ/fullscreen";
+}
+
+modal.style.display = "block";
+
