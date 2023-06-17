@@ -71,23 +71,15 @@ function displayCocktails(data) {
     var instructionsArray = [];
     var instructions = drink.strInstructions;
     instructionsArray = instructions.split('.');
-    //console.log(instructionsArray);
+    console.log(instructionsArray);
 
-    /*for (var i = 0; instructionsArray.length; i++) {
+    for (var j = 0; j < instructionsArray.length; j++) {
         var stepBullet = document.createElement('li');
-        stepBullet.textContent = instructionsArray[i];
-        stepBox.append(stepBullet);
-    }*/
-
-    var step1 = document.createElement('li');
-    step1.textContent = instructionsArray[0];
-    var step2 = document.createElement('li');
-    step2.textContent = instructionsArray[1];
-    var step3 = document.createElement('li');
-    step3.textContent = instructionsArray[2];
-    stepBox.append(step1);
-    stepBox.append(step2);
-    stepBox.append(step3);
+        if (instructionsArray[j]) {
+            stepBullet.textContent = instructionsArray[j];
+            stepBox.append(stepBullet);
+        }
+    }
 }
 function getNutritonalFacts() {
     var apiUrl = 'https://trackapi.nutritionix.com/v2/natural/nutrients/'
@@ -185,6 +177,7 @@ var potassiumEl = document.querySelector('.potassium');
 
 }
 
+
 /*function getExerciseFacts(){
     var apiUrl = ''
     fetch (apiUrl, {
@@ -208,3 +201,4 @@ getCocktailResults();
     console.log('Testing ' + bigString);
     stepBox.append(bigString);
 }*/
+

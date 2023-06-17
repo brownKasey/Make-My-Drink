@@ -3,12 +3,6 @@
 
 }
 
-header {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    height: 180px;
-    text-align: center;
-}
-
 footer {
     text-align: center;
 }
@@ -21,18 +15,6 @@ footer {
     position: relative;
     bottom: 150px;
     left:200px;
-}
-
-.hero.is-primary {
-    background-color: rgba(10,10,10,.1);
-    color: #fff;
-}
-
-.hero {
-    align-items: stretch;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 #search-button.is-fullwidth {
@@ -78,6 +60,7 @@ footer {
     background-color: #ec881d;
     color: #ffff;
 }
+
 
 body {
     background-image: url(./pexels-energepiccom-3021394.jpeg);
@@ -205,3 +188,4 @@ figure {
     padding-right: 8px;
     text-indent: -8px;
   }
+
