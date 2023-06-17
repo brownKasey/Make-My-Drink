@@ -41,10 +41,10 @@ CSS Framework: https://bulma.io/
 
 API's Used:
 The Cocktaildb: https://www.thecocktaildb.com/api.php
-Nutrionix: https://www.nutritionix.com/business/api
+Nutritionix: https://www.nutritionix.com/business/api
 
 Tutorials Used:
-Free Code Camp, helped with creating the nutrition value
+Free Code Camp, helped with creating the nutrition label
 https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-typography-by-building-a-nutrition-label/step-1
 
 README Template:

@@ -3,9 +3,27 @@ var ingredientBox = document.querySelector('#ingredient-box');
 var stepBox = document.querySelector('#step-box');
 var drinkId = JSON.parse(localStorage.getItem('drinkID'));
 
+var labelContainer = document.querySelector('.label');
+var calorieEl = document.querySelector('.calories');
+var totalFatEl = document.querySelector('.total-fat');
+var satFatEl = document.querySelector('.saturated-fat');
+var transFatEl = document.querySelector('.trans-fat');
+var cholEl = document.querySelector('.cholesterol');
+var sodiumEl = document.querySelector('.sodium');
+var carbEl = document.querySelector('.total-carb');
+var dietFiberEl = document.querySelector('.dietary-fiber');
+var sugarsEl = document.querySelector('.total-sugars');
+var proteinEl = document.querySelector('.protein');
+var vitaminEl = document.querySelector('.vitamin-d');
+var calciumEl = document.querySelector('.calcium');
+var ironEl = document.querySelector('.iron');
+var potassiumEl = document.querySelector('.potassium');
+
+
 
 //monika's code
 function getCocktailResults() {
+    hideNutritionLabel();
     drinkId = JSON.parse(localStorage.getItem('drinkID'));
     var requestUrl = 'https://thecocktaildb.com/api/json/v2/9973533/lookup.php?i=' + drinkId;
     //console.log(requestUrl);
@@ -19,6 +37,9 @@ function getCocktailResults() {
         displayCocktails(data);
         getNutritonalFacts(data);
     });
+}
+function hideNutritionLabel(){
+    labelContainer.classList.add('class', 'hidden');
 }
 
 function displayCocktails(data) {
@@ -91,7 +112,7 @@ function displayCocktails(data) {
 }
 function getNutritonalFacts() {
     var apiUrl = 'https://trackapi.nutritionix.com/v2/natural/nutrients/'
-    var ingredients = "1 cup mashed potatoes and 2 tbsp gravy";
+    var ingredients = "1 1/2 OZ TEQUILA 1 OZ LIME JUICE COARSE SALT";
     var myInit = {
         method: "POST",
         headers: {
@@ -111,6 +132,7 @@ function getNutritonalFacts() {
 
       })
       .then(function (data) {
+        
         var foodArray = data.foods;
         //numbers that hold values
         var caloriesNum = 0;
@@ -127,74 +149,76 @@ function getNutritonalFacts() {
         var calciumNum = 0;
         var ironNum = 0;
         var potassiumNum = 0;
-        //for loop that will look at all the elements and add each corresponding value to itself(data.food[0].nf_calories)
+        //for loop that will look at all the elements and add each corresponding value to itself(data.food[0].nf_calories) 
+        //will also round the result 
+        //also displays the result to the page.
         for (var i = 0; i < foodArray.length; i++){
             var foodData = data.foods[i];
             console.log(foodData);
             caloriesNum = Math.round(foodData.nf_calories + caloriesNum);
-            console.log(caloriesNum);
+            calorieEl.innerHTML = caloriesNum;
 
             totalFatNum = Math.round(foodData.nf_total_fat + totalFatNum);
+            totalFatEl.innerHTML = totalFatNum + "g";
 
             satFatNum = Math.round(foodData.nf_saturated_fat + satFatNum);
+            satFatEl.innerHTML = satFatNum + "g";
 
             transFatNum = Math.round(foodData.full_nutrients[83].value + transFatNum);
+            transFatEl.innerHTML = transFatNum + "g";
 
             cholNum = Math.round(foodData.nf_cholesterol + cholNum);
+            cholEl.innerHTML = cholNum + "mg";
 
             sodNum = Math.round(foodData.nf_sodium + sodNum);
+            sodiumEl.innerHTML = sodNum + "mg";
 
             totalCarbNum = Math.round(foodData.nf_total_carbohydrate + totalCarbNum);
+            carbEl.innerHTML = totalCarbNum + "g";
 
             dietaryFiberNum = Math.round(foodData.nf_dietary_fiber + dietaryFiberNum);
+            dietFiberEl.innerHTML = dietaryFiberNum + "g";
 
             totalSugNum = Math.round(foodData.nf_sugars + totalSugNum);
+            sugarsEl.innerHTML = totalSugNum + "g";
 
             proteinNum = Math.round(foodData.nf_protein + proteinNum);
+            proteinEl.innerHTML = proteinNum + "g";
 
             vitDNum = Math.round(foodData.full_nutrients[35].value + vitDNum);
+            vitaminEl.innerHTML = vitDNum + "mcg";
 
             calciumNum = Math.round(foodData.full_nutrients[19].value + calciumNum);
+            calciumEl.innerHTML = calciumNum + "mg";
 
             ironNum = Math.round(foodData.full_nutrients[20].value + ironNum);
+            ironEl.innerHTML = ironNum + "mg";
             
             potassiumNum = Math.round(foodData.full_nutrients[23].value + proteinNum);
-        
+            potassiumEl.innerHTML = potassiumNum + "mg";
+            
         }
+        //unhides the label only after all results have been found and are displayed in the correct html element
+        labelContainer.classList.remove('hidden');
         }
 
     );
 };
-function displayNutritionalFacts() {
 
-var calorieEl = document.querySelector('.calories');
-var totalFatEl = document.querySelector('.total-fat');
-var satFatEl = document.querySelector('.saturated-fat');
-var transFatEl = document.querySelector('trans-fat');
-var cholEl = document.querySelector('.cholesterol');
-var sodiumEl = document.querySelector('.sodium');
-var carbEl = document.querySelector('.total-carb');
-var dietFiberEl = document.querySelector('.dietary-fiber');
-var sugarsEl = document.querySelector('.total-sugars');
-var proteinEl = document.querySelector('.protein');
-var vitaminEl = document.querySelector('.vitamin-d');
-var calciumEl = document.querySelector('.calcium');
-var ironEl = document.querySelector('.iron');
-var potassiumEl = document.querySelector('.potassium');
-
-
-}
 
 /*function getExerciseFacts(){
-    var apiUrl = ''
-    fetch (apiUrl, {
+    var apiUrl = 'https://trackapi.nutritionix.com/v2/natural/exercise'
+        var myInit = {
+        method: "POST",
         headers: {
             'content-type': 'application/json',
+
             'x-app-id': '5cd39341',
             'x-app-key': 'bda13b00f69ec6525e8dcd738a635a2a',
             'x-remote-user-id': '0',
-        }
-    })
+        },
+    fetch (apiUrl, myInit)
+
     .then(function (response) {
         console.log(response.status);
         return response.json();

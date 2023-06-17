@@ -11,7 +11,6 @@ function validateUserInput() {
 
     if (cocktailName.value) {
         getCocktailResults(cocktailName.value);
-        getNutritonalFacts();
     // TO-DO: Swap out alert for a modal
     } else {
         alert('Please enter a cocktail name');

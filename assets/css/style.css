@@ -79,11 +79,11 @@ footer {
     color: #ffff;
 }
 
-body {
+/*body {
     background-image: url(./pexels-energepiccom-3021394.jpeg);
     background-color: #cccccc;
     background-size:cover;
-}
+}*/
 figure {
     background-image: url(../images/cocktail_array.png);
     background-size: cover;
