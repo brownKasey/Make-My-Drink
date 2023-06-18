@@ -6,7 +6,9 @@ var backgroundImage = document.querySelector('.wrapper');
 var searchContainer = document.querySelector('.search-container');
 var spiritButtons = document.querySelector('.buttons');
 
-// 
+
+
+// monika's code
 function getUserInput(event) {
     event.preventDefault();
     //console.log('Testing search button');
@@ -121,7 +123,6 @@ function displayCocktails(data) {
         cardsContainer.append(cardEl);
       }
 }
-
 // Event listener for search button
 searchButton.addEventListener('click', getUserInput);
 
