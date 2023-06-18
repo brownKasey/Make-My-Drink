@@ -27,6 +27,7 @@ function getUserInput(event) {
 
 function spiritButtonsHandler (event) {
     //console.log("Testing spirit button");
+
     var e = event.target;
     var spirit = e.getAttribute('data-spirit');
     //console.log(spirit);
@@ -80,7 +81,6 @@ function displayCocktails(data) {
     backgroundImage.classList.remove('wrapper');
     // Add background image to search bar container
     searchContainer.classList.add('wrapper2');
-
     resultsContainer.classList.remove('hidden');
 
     for (var i = 0; i < data.drinks.length; i++) {
