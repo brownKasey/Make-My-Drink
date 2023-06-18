@@ -11,29 +11,27 @@
 </head>
 <body>
   <header>
-    <section class="hero is-small is-primary">
       <div class="hero-body">
         <p class="title">Make My Drink</p>
         <p class="subtitle">FIT AND FUN</p>
       </div>
-    </section>
   </header>
 
-  <!-------------------- Container for search bar, search filters and previous searches ------------------->
-  <section class="section is-medium search-container">
-    <div class="container">
-      <input id="inputCocktail" class="input" type="text" placeholder="Enter your drink name!!">
-        <button id="search-button" class="button is-responsive">Search</button>
+  <!------------------------------ Container for search bar, search filters ------------------------------>
+  <section class="section is-medium search-container go-back-container">
+    <div class="container is-centered go-back-box">
+        <button id="go-back-button" class="button is-large is-responsive">Start Over</button>
     </div>
   </section>
 
   <!------------------------------------ Container for selected cocktail ---------------------------------->
   <section class="section is-medium info-container">
-    <div class="columns info-col">
+    <div class="columns info-col info-boxes">
       <div class="column is-one-fifth">
         <figure id="selected-image" class="image"></figure>
       </div>
       <div id="nutrition-box" class="column is-four-fifths">
+
         <div class="label">
           <header class="nutrition-header">
             <h1 class="bold">Nutrition Facts</h1>
@@ -109,7 +107,7 @@
         </div>
       </div>
     </div>
-    <div class="columns info-col">
+    <div class="columns info-col info-boxes">
       <div id="ingredient-box" class="column is-two-fifths">
         <p class="title is-4">Ingredients</p>
       </div>
@@ -119,11 +117,15 @@
   </section>
   
   <footer>
-    <section class="hero is-small is-primary">
-      <div class="hero-body">
-        <p class="title">Thank you for visiting!!</p>
-      </div>
-    </section>
+    <div class="tabs is-centered">
+      <ul>
+        <li><a>Clarence</a></li>
+        <li><a>Kasey</a></li>
+        <li><a>Monika</a></li>
+        <li><a>Sri</a></li>
+      </ul>
+    </div>
+        
   </footer>
     <script src="./assets/js/selected.js"></script>    
 </body>

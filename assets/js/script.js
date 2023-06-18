@@ -1,48 +1,94 @@
 var searchButton = document.getElementById('search-button'); 
-var cocktailName = document.querySelector('#inputCocktail');
-var startContainer = document.querySelector('.start-container');
+var userInput = document.querySelector('#inputCocktail');
 var resultsContainer = document.querySelector('.results-container');
 var cardsContainer = document.querySelector('.card-container');
+var backgroundImage = document.querySelector('.wrapper');
+var searchContainer = document.querySelector('.search-container');
+var spiritButtons = document.querySelector('.buttons');
+
 
 
 // monika's code
-function validateUserInput() {
+function getUserInput(event) {
+    event.preventDefault();
     //console.log('Testing search button');
 
-    if (cocktailName.value) {
-        getCocktailResults(cocktailName.value);
+    // Trim white space from both ends
+    var cocktailName = userInput.value.trim();
+
+    // Clear search bar input upon click event
+    userInput.value = '';
+
+    if (cocktailName) {
+        getCocktailData(cocktailName);
     // TO-DO: Swap out alert for a modal
     } else {
         alert('Please enter a cocktail name');
     }
 };
 
-function getCocktailResults(cocktail) {
+function spiritButtonsHandler (event) {
+    //console.log("Testing spirit button");
+
+    var e = event.target;
+    var spirit = e.getAttribute('data-spirit');
+    //console.log(spirit);
+
+    if (spirit) {
+        getSpiritData(spirit);
+    } else {
+        return;
+    }
+}
+
+function getSpiritData(spirit) {
+    var requestUrl = 'https://thecocktaildb.com/api/json/v2/9973533/filter.php?i=' + spirit;
+    console.log(requestUrl);
+
+    fetch(requestUrl)
+    .then(function (response) {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response.json();
+    })
+    .then(function (data) {
+        displayCocktails(data);
+    })
+    .catch(function (error) {
+        console.log('Unable to connect to the CocktailDB');
+    })
+}
+
+function getCocktailData(cocktail) {
     var requestUrl = 'https://thecocktaildb.com/api/json/v2/9973533/search.php?s=' + cocktail;
     fetch(requestUrl)
     .then(function (response) {
-      console.log(response.status);
+      //console.log(response.status);
+      if (!response.ok) {
+        throw Error(response.statusText);
+      }
       return response.json();
-      // TO-DO: Add error handling
     })
     .then(function (data) {
-        console.log(data);
-        // Check if fetch fetched any results
-        // If not, display message
-
-        // Clear previous search results from cards container
-        cardsContainer.innerHTML = '';
         displayCocktails(data);
     });
 }
 
 function displayCocktails(data) {
-    startContainer.classList.add('class', 'hidden');
+    // Clear previous search results from cards container
+    cardsContainer.innerHTML = '';
+
+    // Remove full background image
+    backgroundImage.classList.remove('wrapper');
+    // Add background image to search bar container
+    searchContainer.classList.add('wrapper2');
     resultsContainer.classList.remove('hidden');
+
     for (var i = 0; i < data.drinks.length; i++) {
         
         // Create container to hold card components
-        // Add classes to display cards in a 3-column layout
+        // Add classes to display cards in a 4-column layout
         var cardEl = document.createElement('div');
         cardEl.classList.add('column', 'is-3', 'card');
 
@@ -78,11 +124,16 @@ function displayCocktails(data) {
       }
 }
 // Event listener for search button
-searchButton.addEventListener('click', validateUserInput);
+searchButton.addEventListener('click', getUserInput);
 
+// Event listener for spirit buttons
+spiritButtons.addEventListener('click', spiritButtonsHandler);
+
+// Event listener for cocktail selection
+// Store drink id of user selected cocktail in local storage
 resultsContainer.addEventListener('click', function(event) {
     var e = event.target;
     drinkID = e.getAttribute('idDrink');
-    localStorage.setItem('drinkID', JSON.stringify(drinkID));
     //console.log(drinkID);
+    localStorage.setItem('drinkID', JSON.stringify(drinkID));
 })

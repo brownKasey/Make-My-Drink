@@ -1,43 +1,87 @@
+:root {
+    --primary-color: #1b1c1e;
+    --secondary-color: #feb71d;
+    --tertiary-color: #581913;
+}
+
 * {
     box-sizing: border-box;
-
 }
 
-footer {
+body {
+    font-family: 'Lexend', sans-serif;
+}
+
+header {
     text-align: center;
+    height: 100px;
+    background-color: var(--primary-color);
 }
 
-.input{
-    background-color: rgba(10,10,10,.1);
-    color: #141414;
-    width: 800px;
-    text-align: center;
-    position: relative;
-    bottom: 150px;
-    left:200px;
+.hero-body {
+    padding: 10px;
 }
 
-#search-button.is-fullwidth {
+.hero-body p {
+    color: var(--secondary-color);
+}
+
+.title {
+    font-size: 50px;
+}
+
+.subtitle {
+    font-size: 23px;
+}
+
+.wrapper {
     display: flex;
-    top: 5px;
-    width: 100%;
-    position: relative;
-    left: 0px;
-    flex-wrap: nowrap;
-    align-items: baseline;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url("../images/background-cocktail.png");
+    background-size: cover;
+    background-position: 50% 42%;
+}
+
+.wrapper2, .go-back-container {
+    background-image: url("../images/background-cocktail.png");
+    background-size: contain;
+    min-height: 30vh;
+}
+
+.input {
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    opacity: 85%;
+    text-align: center;
+}
+
+.field {
+    margin: 135px auto 0;
+    width: 800px;
+}
+
+.button {
+    background-color: var(--secondary-color);
+}
+
+.spirit-button {
+    width: 120px;
 }
 
 /* Hide container */
 .hidden {
     display: none;
 }
-  
+
 .search-container {
-    height: 300px;
+    height: 400px;
 }
   
-.start-container, .results-container, .info-container {
+.results-container, .info-container {
     min-height: 500px;
+    background-color: var(--secondary-color)
 }
 
 .card-container {
@@ -46,10 +90,11 @@ footer {
 
 .card {
     box-shadow: none; /* Remove white border around card */
+    border: 0px;
 }
 
 .card-header {
-    background-color: #ec881d;
+    background-color: var(--secondary-color);
 }
 
 .card-header-title {
@@ -57,16 +102,11 @@ footer {
 }
 
 .recipe-button {
-    background-color: #ec881d;
+    background-color: var(--secondary-color);
     color: #ffff;
 }
 
 
-/*body {
-    background-image: url(./pexels-energepiccom-3021394.jpeg);
-    background-color: #cccccc;
-    background-size:cover;
-}*/
 figure {
     background-image: url(../images/cocktail_array.png);
     background-size: cover;
@@ -188,4 +228,21 @@ figure {
     padding-right: 8px;
     text-indent: -8px;
   }
+
+
+.info-boxes {
+    background-color: var(--primary-color);
+    color: rgb(253, 250, 250);
+    font-size: 15px;
+}
+
+.info-boxes p {
+    color: rgb(253, 250, 250);
+}
+
+.go-back-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
 
