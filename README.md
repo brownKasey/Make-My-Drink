@@ -33,24 +33,30 @@ Head to the webpage: //link to webpage
 
 Collaborators:
 Clarence: https://github.com/SudoSapien21 
+
 Kasey: https://github.com/brownKasey
-Monica: https://github.com/pinkhaze
+
+Monica: https://github.com/
+
 Sri: https://github.com/Sowchirukuri
 
 CSS Framework: https://bulma.io/
 
 API's Used:
+
 The Cocktaildb: https://www.thecocktaildb.com/api.php
+
 Nutritionix: https://www.nutritionix.com/business/api
 
 Tutorials Used:
 Free Code Camp, helped with creating the nutrition label
+
 https://www.freecodecamp.org/learn/2022/responsive-web-design/learn-typography-by-building-a-nutrition-label/step-1
 
 README Template:
+
 https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 
-//add anything else used in help creating the web application
 
 ## License
 Refer to LICENSE in the repo!

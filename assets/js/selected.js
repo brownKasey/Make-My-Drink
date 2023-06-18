@@ -104,7 +104,7 @@ function displayCocktails(data) {
 }
 function getNutritonalFacts() {
     var apiUrl = 'https://trackapi.nutritionix.com/v2/natural/nutrients/'
-    var ingredients = "1 1/2 OZ TEQUILA 1 OZ LIME JUICE COARSE SALT";
+    var ingredients = "1 cup mashed potatoes and 2 tbsp gravy";
     var myInit = {
         method: "POST",
         headers: {
