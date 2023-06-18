@@ -2,7 +2,6 @@ var selectedImage = document.querySelector('#selected-image');
 var ingredientBox = document.querySelector('#ingredient-box');
 var stepBox = document.querySelector('#step-box');
 var drinkId = JSON.parse(localStorage.getItem('drinkID'));
-var goBackButton = document.querySelector('#go-back-button');
 
 var labelContainer = document.querySelector('.label');
 var calorieEl = document.querySelector('.calories');
@@ -28,7 +27,6 @@ function getCocktailResults() {
     drinkId = JSON.parse(localStorage.getItem('drinkID'));
     var requestUrl = 'https://thecocktaildb.com/api/json/v2/9973533/lookup.php?i=' + drinkId;
     //console.log(requestUrl);
-
     fetch(requestUrl)
     .then(function (response) {
       //console.log(response.status);
@@ -44,9 +42,9 @@ function hideNutritionLabel(){
 }
 
 function displayCocktails(data) {
+    console.log(data);
 
     var drink = data.drinks[0];
-    //console.log(drink);
 
     // Create image element
     var imageEl = document.createElement('img');
@@ -86,26 +84,19 @@ function displayCocktails(data) {
         var ingredient = measuresArray[i] + ' ' + ingredientsArray[i];
         bigString = bigString + ' ' + ingredient + ',';
         //console.log('Testing ingredient ' + i + ': ' + ingredient);
-
-        getNutritonalFacts(bigString);
-
+    getNutritonalFacts(bigString);
     }
 
+    // Print each step in list format
     var instructionsArray = [];
     var instructions = drink.strInstructions;
-    console.log(instructions);
-
-    // Split instructions string into sub-instruction strings
     instructionsArray = instructions.split('.');
     console.log(instructionsArray);
 
-    for (var k = 0; k < instructionsArray.length; k++) {
+    for (var j = 0; j < instructionsArray.length; j++) {
         var stepBullet = document.createElement('li');
-        if (instructionsArray[k])  {
-            var firstLetter = instructionsArray[k].charAt(0).toUpperCase();
-            var leftoverLetters = instructionsArray[k].slice(1);
-            instructionsArray[k] = firstLetter + leftoverLetters + '.';
-            stepBullet.textContent = instructionsArray[k];
+        if (instructionsArray[j]) {
+            stepBullet.textContent = instructionsArray[j];
             stepBox.append(stepBullet);
         }
     }
@@ -177,7 +168,7 @@ function getNutritonalFacts(bigString) {
 
             dietaryFiberNum = Math.round(foodData.nf_dietary_fiber + dietaryFiberNum);
             dietFiberEl.innerHTML = dietaryFiberNum + "g";
-          
+
             totalSugNum = Math.round(foodData.nf_sugars + totalSugNum);
             sugarsEl.innerHTML = totalSugNum + "g";
 
@@ -204,11 +195,32 @@ function getNutritonalFacts(bigString) {
     );
 };
 
-function goBack() {
-    //console.log("Testing go back button");
-    window.location.href='./index.html'
-}
 
-goBackButton.addEventListener('click', goBack);
 
+/*function getExerciseFacts(){
+    var apiUrl = 'https://trackapi.nutritionix.com/v2/natural/exercise'
+        var myInit = {
+        method: "POST",
+        headers: {
+            'content-type': 'application/json',
+
+            'x-app-id': '5cd39341',
+            'x-app-key': 'bda13b00f69ec6525e8dcd738a635a2a',
+            'x-remote-user-id': '0',
+        },
+    fetch (apiUrl, myInit)
+
+    .then(function (response) {
+        console.log(response.status);
+        return response.json();
+      })
+      .then(function (data) {
+        console.log(data);
+    });
+}*/
 getCocktailResults();
+/*function fetchFunction(bigString) {
+    console.log('Testing ' + bigString);
+    stepBox.append(bigString);
+}*/
+
