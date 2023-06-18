@@ -35,7 +35,7 @@ function getCocktailResults() {
     })
     .then(function (data) {
         displayCocktails(data);
-        getNutritonalFacts(data);
+        getNutritonalFacts(data); //MONIKA: delete this line
     });
 }
 function hideNutritionLabel(){
@@ -85,7 +85,7 @@ function displayCocktails(data) {
         var ingredient = measuresArray[i] + ' ' + ingredientsArray[i];
         bigString = bigString + ' ' + ingredient + ',';
         //console.log('Testing ingredient ' + i + ': ' + ingredient);
-        //fetchFunction(bigString);
+        //fetchFunction(bigString); //MONIKA: getNuttritonalFacts(bigString);
     }
 
     // Print each step in list format
@@ -102,9 +102,9 @@ function displayCocktails(data) {
         }
     }
 }
-function getNutritonalFacts() {
+function getNutritonalFacts() { //MONIKA: function getNutritonalFacts(bigString)
     var apiUrl = 'https://trackapi.nutritionix.com/v2/natural/nutrients/'
-    var ingredients = "1 cup mashed potatoes and 2 tbsp gravy";
+    var ingredients = "1 cup mashed potatoes and 2 tbsp gravy"; //MONIKA: var ingredients = bigString
     var myInit = {
         method: "POST",
         headers: {
