@@ -85,7 +85,6 @@ function displayCocktails(data) {
     }
 }
 
-
 function goBack() {
     //console.log("Testing go back button");
     window.location.href='./index.html'
