@@ -4,53 +4,56 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to Bulma's CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Link to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">   
     <title>Make My Drink</title>
 </head>
-<body>
-  <header>
-    <section class="hero is-small is-primary">
-      <div class="hero-body">
-        <p class="title">Make My Drink</p>
-        <p class="subtitle">FIT AND FUN</p>
-      </div>
+
+<body class="wrapper">
+    <header>
+        <div class="hero-body">
+            <p class="title">Make My Drink</p>
+            <p class="subtitle">FIT AND FUN</p>
+        </div>
+    </header>
+    <!------------------------ Container for search bar, search filters and previous ----------------------->
+    <section class="section is-medium search-container">
+        <div class="field has-addons">
+            <p class="control is-expanded">
+                <input id="inputCocktail" class="input is-medium input-keydown" type="text" placeholder="Enter your drink name!">
+            </p>
+            <p class="control">
+                <button id="search-button" class="button is-medium">Search</button>
+            </p>
+        </div>
+        <div class="buttons are-medium is-centered">
+            <button data-spirit="vodka" class="button spirit-button">Gin</button>
+            <button data-spirit="vodka" class="button spirit-button">Vodka</button>
+            <button data-spirit="tequila" class="button spirit-button">Tequila</button>
+            <button data-spirit="whiskey" class="button spirit-button">Bourbon</button>
+            <button data-spirit="rum" class="button spirit-button">Rum</button>
+        </div>
     </section>
-  </header>
-
-  <!-------------------- Container for search bar, search filters and previous searches ------------------->
-  <section class="section is-medium search-container">
-    <div class="container">
-      <input id="inputCocktail" class="input" type="text" placeholder="Enter your drink name!">
-        <button id="search-button" class="button is-responsive">Search</button>
-    </div>
-  </section>
-
-  <!---------------------------------------- Container for image? ----------------------------------------->
-  <section class="section start-container">
-    <h1 class="title">Main Page</h1>
-  </section>
-
-    <!------------------------------- Container to hold search results -------------------------------------->
+    
+    <!------------------------------------ Container for search results -------------------------------------->
     <section class="section is-medium results-container hidden">
         <div class="columns card-container"></div>
     </section>
-
-    <!------------------------- Container to hold recipe and nutrition info --------------------------------->
-    <section class="section is-medium info-container hidden">
-        <h1 class="title">Selected Cocktail Page</h1>
-
-    </section>
-<footer>
-    <section class="hero is-small is-primary">
-        <div class="hero-body">
-          <p class="title">
-            Thank you for visiting!!
-          </p>
-        </div>
-      </section>
-</footer>
+    
+    <footer>
+        <p class="subtitle"></p>
+    </footer>
+    
     <script src="./assets/js/script.js"></script>    
 </body>
+
 </html>
