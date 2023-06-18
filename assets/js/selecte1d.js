@@ -84,7 +84,7 @@ function displayCocktails(data) {
         var ingredient = measuresArray[i] + ' ' + ingredientsArray[i];
         bigString = bigString + ' ' + ingredient + ',';
         //console.log('Testing ingredient ' + i + ': ' + ingredient);
-        getNutritonalFacts(bigString);
+    getNutritonalFacts(bigString);
     }
 
     // Print each step in list format

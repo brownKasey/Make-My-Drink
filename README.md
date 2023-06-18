@@ -1,7 +1,7 @@
 # Make-My-Drink
 
 ## Description
-A web application that allows users to find recipes for user-specified alcoholic drinks. These recipes will include a picture of the specified drink, and instructions on how to prepare and serve it. It also provides nutritional information that includes, but is not limited to, calorie amount, sodium, sugars (in grams) and how long it will take to burn off the calorie amount.
+A web application that allows users to find recipes for user-specified alcoholic drinks. These recipes will include a picture of the specified drink, and instructions on how to prepare and serve it. It also provides nutritional information that includes, but is not limited to, calorie amount, sodium, sugars (in grams).
 
 The motivation for developing this web application was to help anyone who enjoys alcoholic beverages remain concious of the nutritional values.
 
@@ -32,6 +32,7 @@ Head to the webpage: //link to webpage
 ## Credits
 
 Collaborators:
+
 Clarence: https://github.com/SudoSapien21 
 
 Kasey: https://github.com/brownKasey
