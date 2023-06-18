@@ -93,6 +93,7 @@ body{
 .modal {  /* added the modal to the search button.*/
     display: none;
     background-color: rgb(24, 17, 231);
+    background-image: url(./image1.jpg);
     
     
 }

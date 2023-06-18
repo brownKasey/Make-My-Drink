@@ -9,7 +9,7 @@ var modalButton = document.getElementById('modal-button');
 var modal = document.getElementById("myModal");
 var confirmYes = document.getElementById("confirmYes");
 var confirmNo = document.getElementById("confirmNo");
-var ageConfirmed = localStorage.getItem("ageConfirmed");
+// var ageConfirmed = localStorage.getItem("ageConfirmed");
 
 // 
 function validateUserInput() {
@@ -98,18 +98,17 @@ closeButton.addEventListener('click', () => {
     modalContainer.style.display = 'none';
 });
 // Added a confirm page modal & Local Stroage
-if (ageConfirmed === "true") {
-    showContent();
-} else {
-    modal.style.display = "block";
-}
+// if (ageConfirmed === "true") {
+   
+// } else {
+//     modal.style.display = "block";
+// }
 
 confirmYes.onclick = function() {
     // User clicked "Yes" button
     localStorage.setItem("ageConfirmed", "true");
     modal.style.display = "none";
-    showContent();
-    
+        
 }
 
 confirmNo.onclick = function() {
@@ -118,6 +117,14 @@ confirmNo.onclick = function() {
     modal.style.display = "none";
     window.location.href = "https://giphy.com/gifs/G7y1nEq4I251TKMFFZ/fullscreen";
 }
+// function showContent() {
+//     // Add the content of your cocktail site here
+//     document.body.innerHTML += "<section class='section'><div class='container'><h1 class='title'>Welcome to Make My Drink</h1></div></section>";
+//   }
+  
+//   function redirectToBypassPage() {
+//     window.location.href = "https://vpnpro.com/guides-and-tutorials/how-to-bypass-access-denied-website/";
+//   }
 
 modal.style.display = "block";
 
