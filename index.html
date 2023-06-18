@@ -4,25 +4,32 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Link to Bulma's CDN -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.4/css/bulma.min.css" integrity="sha512-HqxHUkJM0SYcbvxUw5P60SzdOTy/QVwA1JJrvaXJv4q7lmbDZCmZaqz01UPOaQveoxfYRv1tHozWGPMcuTBuvQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Link to Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">   
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800">
     <title>Make My Drink</title>
 </head>
-<body>
-
   
-
-  <!--------------------------------------- Container for search results ---------------------------------->
-  <section class="section is-medium results-container hidden">
-    <div class="columns card-container"></div>
-  </section>
+<body class="wrapper">
+    <header>
+        <div class="hero-body">
+            <p class="title">Make My Drink</p>
+            <p class="subtitle">FIT AND FUN</p>
+        </div>
+    </header>
   
-    <section class="section is-medium info-container hidden">
-      <h1 class="title">Selected Cocktail Page</h1>
-    </section>
-
-    <div id="modal-container" class="modal">
+  <button id="modal-button" class="button">Open Modal</button>
+  
+  <div id="modal-container" class="modal">
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class="box">
@@ -33,22 +40,7 @@
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
   
-  <footer>
-    <section class="hero is-small is-primary">
-      <div class="hero-body">
-        <p class="title">Thank you for visiting!!</p>
-      </div>
-  <!-------------------- Header ------------------->
-
-  <header>
-    <section class="hero is-small is-primary">
-      <div class="hero-body">
-        <p class="title">Make My Drink</p>
-        <p class="subtitle">FIT AND FUN</p>
-      </div>
-    </section>
-  </header>      
- <!-------------------- Confirmation Page ------------------->
+   <!-------------------- Confirmation Page ------------------->
   
  <div id="myModal" class="modal modal-large">
   <div class="modal-content">
@@ -58,53 +50,43 @@
       <button id="confirmNo">No</button>
   </div>
 </div>
-
-  <!-------------------- Container for search bar, search filters and previous searches ------------------->
-  <section class="section is-medium search-container">
-    <div class="container">
-      <input id="inputCocktail" class="input" type="text" placeholder="Enter your drink name!">
-        <button id="search-button" class="button is-responsive">Search</button>
-    </div>
-  </section>
-    
-
-  <!---------------------------------------- Container for image? ----------------------------------------->
-  <section class="section start-container">
-    <h1 class="title">Main Page</h1>
-    <button id="modal-button" class="button">Open Modal</button>
-</section>
-
   
-
-  <!--------------------------------------- Container for search results ---------------------------------->
-  <section class="section is-medium results-container hidden">
-    <div class="columns card-container"></div>
-  </section>
-  
-    <section class="section is-medium info-container hidden">
-      <h1 class="title">Selected Cocktail Page</h1>
-    </section>
-
-    <div id="modal-container" class="modal">
-        <div class="modal-background"></div>
-        <div class="modal-content">
-            <div class="box">
-                <h2 class="title">Wait</h2>
-                <p>Please enter a cocktail name.</p>
-            </div>
+    <!------------------------ Container for search bar, search filters and previous ----------------------->
+    <section class="section is-medium search-container">
+        <div class="field has-addons">
+            <p class="control is-expanded">
+                <input id="inputCocktail" class="input is-medium input-keydown" type="text" placeholder="Enter your drink name!">
+            </p>
+            <p class="control">
+                <button id="search-button" class="button is-medium">Search</button>
+            </p>
         </div>
-        <button class="modal-close is-large" aria-label="close"></button>
-    </div>
-  
-  <footer>
-    <section class="hero is-small is-primary">
-      <div class="hero-body">
-        <p class="title">Thank you for visiting!!</p>
-      </div>
+        <div class="buttons are-medium is-centered">
+            <button data-spirit="vodka" class="button spirit-button">Gin</button>
+            <button data-spirit="vodka" class="button spirit-button">Vodka</button>
+            <button data-spirit="tequila" class="button spirit-button">Tequila</button>
+            <button data-spirit="bourbon" class="button spirit-button">Bourbon</button>
+            <button data-spirit="rum" class="button spirit-button">Rum</button>
+        </div>
     </section>
-  </footer>
-    <script src="./assets/js/script.js"></script>   
-  
-
+    
+    <!------------------------------------ Container for search results -------------------------------------->
+    <section class="section is-medium results-container hidden">
+        <div class="columns card-container"></div>
+    </section>
+    
+    <footer>
+        <!--<div class="tabs is-centered">
+            <ul>
+              <li><a>Clarence</a></li>
+              <li><a>Kasey</a></li>
+              <li><a>Monika</a></li>
+              <li><a>Sri</a></li>
+            </ul>
+          </div> -->
+    </footer>
+    
+    <script src="./assets/js/script.js"></script>  
 </body>
+
 </html>

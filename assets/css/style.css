@@ -1,45 +1,73 @@
-*{
+:root {
+    --primary-color: #1b1c1e;
+    --secondary-color: #feb71d;
+    --tertiary-color: #581913;
+}
+
+* {
     box-sizing: border-box;
 }
 
-body{
-    background-color: #cccccc;
-    background-size: cover;
-}
-
-body{
-    background-color: #cccccc;
-    background-size: cover;
+body {
+    font-family: 'Lexend', sans-serif;
 }
 
 header {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-size: 40px;
-    height: 180px;
     text-align: center;
-    color: rebeccapurple;
+    height: 100px;
+    background-color: var(--primary-color);
 }
 
-footer{
+.hero-body {
+    padding: 10px;
+}
+
+.hero-body p {
+    color: var(--secondary-color);
+}
+
+.title {
+    font-size: 50px;
+}
+
+.subtitle {
+    font-size: 23px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: url("../images/background-cocktail.png");
+    background-size: cover;
+    background-position: 50% 42%;
+}
+
+.wrapper2, .go-back-container {
+    background-image: url("../images/background-cocktail.png");
+    background-size: contain;
+    min-height: 30vh;
+}
+
+.input {
+    color: black;
+    font-weight: bold;
+    background-color: white;
+    opacity: 85%;
     text-align: center;
 }
 
-.input{
-    background-color: rgba(10,10,10,.1);
-    color: #141414;
+.field {
+    margin: 135px auto 0;
     width: 800px;
-    text-align: center;
-    position: relative;
-    bottom: 150px;
-    left:200px;
 }
 
-.search-button{
-    width: 100px;
-    background-color: lightcyan;
-    position: relative;
-    bottom: 150px;
-    left: 240px;
+.button {
+    background-color: var(--secondary-color);
+}
+
+.spirit-button {
+    width: 120px;
 }
 
 /* Hide container */
@@ -48,11 +76,13 @@ footer{
 }
 
 .search-container {
-    max-height: 300px;
+    height: 400px;
 }
+  
+.results-container, .info-container {
+    min-height: 500px;
+    background-color: var(--secondary-color)
 
-.start-container, .results-container, .info-container {
-    min-height: 700px;
 }
 
 .card-container {
@@ -61,10 +91,11 @@ footer{
 
 .card {
     box-shadow: none; /* Remove white border around card */
+    border: 0px;
 }
 
 .card-header {
-    background-color: #ec881d;
+    background-color: var(--secondary-color);
 }
 
 .card-header-title {
@@ -72,33 +103,144 @@ footer{
 }
 
 .recipe-button {
-    background-color: #ec881d;
+    background-color: var(--secondary-color);
     color: #ffff;
 }
 
-footer{
-    text-align: center;
-}
-body{
-    background-image: url(./3442785.jpg);
-    background-color: #cccccc;
-    background-size: cover;
-}
-
-#search-button {
-    position: relative;
-    bottom: 150px;
-    left: 240px;
-}
 .modal {  /* added the modal to the search button.*/
     display: none;
     background-color: rgb(24, 17, 231);
     background-image: url(./image1.jpg);
-    
-    
 }
-#modal-button{
 
+#modal-button{
     display: none;
+  }
+  
+/*nutrition label*/
+  .label {
+    font-size: 16px;
+    font-family: 'Open Sans', sans-serif;
+    border: 2px solid black;
+    width: 270px;
+    margin: 20px auto;
+    padding: 0 7px;
+    transform: scale(0.63);
+    position: relative;
+    top: -112px;
+    right: 610px;
+  }
+  
+  .label header {
+    font-size: 16px;
+    height: 80px;
+    
+  }
+
+  .label header h1 {
+    text-align: center;
+    margin: -4px 0;
+    letter-spacing: 0.15px;
+    font-size: 35px;
+  }
+  .label header .serving-size{
+    justify-content: space-between;
+  }
+  .nutrition-paragraph{
+    margin: 0;
+    display: flex;
+  }
+  
+  .divider {
+    border-bottom: 1px solid #888989;
+    margin: 2px 0;
+  }
+  
+  .bold {
+    font-weight: 800;
+  }
+  
+  .large {
+    height: 10px;
+  }
+  
+  .large, .medium {
+    background-color: black;
+    border: 0;
+  }
+  
+  .medium {
+    height: 5px;
+  }
+  
+  .small-text {
+    font-size: 0.85rem;
+  }
+  
+  
+  .calories-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  
+  .calories-info h2 {
+    margin: 0;
+  }
+  
+  .left-container p {
+    margin: -5px -2px;
+    font-size: 2em;
+    font-weight: 700;
+  }
+  
+  .calories-info span {
+    margin: -7px -2px;
+    font-size: 2.4em;
+    font-weight: 700;
+  }
+  
+  .right {
+    justify-content: flex-end;
+  }
+  
+  .indent {
+    margin-left: 1em;
+  }
+  
+  .double-indent {
+    margin-left: 2em;
+  }
+  .daily-value{
+    justify-content: none;
+  }
+
+  .daily-value p:not(.no-divider) {
+    border-bottom: 1px solid #888989;
+  }
+  
+  .note {
+    font-size: 0.6rem;
+    margin: 5px 0;
+    padding-left: 8px;
+    padding-right: 8px;
+    text-indent: -8px;
+  }
+
+
+.info-boxes {
+    background-color: var(--primary-color);
+    color: rgb(253, 250, 250);
+    font-size: 15px;
+}
+
+.info-boxes p {
+    color: rgb(253, 250, 250);
+}
+
+.go-back-box {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
 }
 
