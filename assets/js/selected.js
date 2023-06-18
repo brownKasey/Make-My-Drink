@@ -177,7 +177,7 @@ function getNutritonalFacts(bigString) {
 
             dietaryFiberNum = Math.round(foodData.nf_dietary_fiber + dietaryFiberNum);
             dietFiberEl.innerHTML = dietaryFiberNum + "g";
-
+          
             totalSugNum = Math.round(foodData.nf_sugars + totalSugNum);
             sugarsEl.innerHTML = totalSugNum + "g";
 
@@ -203,30 +203,6 @@ function getNutritonalFacts(bigString) {
 
     );
 };
-
-
-
-/*function getExerciseFacts(){
-    var apiUrl = 'https://trackapi.nutritionix.com/v2/natural/exercise'
-        var myInit = {
-        method: "POST",
-        headers: {
-            'content-type': 'application/json',
-
-            'x-app-id': '5cd39341',
-            'x-app-key': 'bda13b00f69ec6525e8dcd738a635a2a',
-            'x-remote-user-id': '0',
-        },
-    fetch (apiUrl, myInit)
-
-    .then(function (response) {
-        console.log(response.status);
-        return response.json();
-      })
-      .then(function (data) {
-        console.log(data);
-    });
-}*/
 
 function goBack() {
     //console.log("Testing go back button");
