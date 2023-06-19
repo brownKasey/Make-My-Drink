@@ -2,13 +2,16 @@ var searchButton = document.getElementById('search-button');
 var userInput = document.querySelector('#inputCocktail');
 var resultsContainer = document.querySelector('.results-container');
 var cardsContainer = document.querySelector('.card-container');
+var modalContainer = document.getElementById('modal-container');
+var modalButton = document.getElementById('modal-button');
+var modal = document.getElementById("myModal");
+var confirmYes = document.getElementById("confirmYes");
+var confirmNo = document.getElementById("confirmNo");
+// var ageConfirmed = localStorage.getItem("ageConfirmed");
 var backgroundImage = document.querySelector('.wrapper');
 var searchContainer = document.querySelector('.search-container');
 var spiritButtons = document.querySelector('.buttons');
 
-
-
-// monika's code
 function getUserInput(event) {
     event.preventDefault();
     //console.log('Testing search button');
@@ -21,9 +24,8 @@ function getUserInput(event) {
 
     if (cocktailName) {
         getCocktailData(cocktailName);
-    // TO-DO: Swap out alert for a modal
     } else {
-        alert('Please enter a cocktail name');
+        modalContainer.style.display = 'block'; // Replaced alert with modalContainer
     }
 };
 
@@ -123,8 +125,48 @@ function displayCocktails(data) {
         cardsContainer.append(cardEl);
       }
 }
+
 // Event listener for search button
 searchButton.addEventListener('click', getUserInput);
+
+// Added Modal 
+modalButton.addEventListener('click', () => {
+   
+});
+
+var closeButton = modalContainer.querySelector('.modal-close');
+closeButton.addEventListener('click', () => {
+    modalContainer.style.display = 'none';
+});
+// Added a confirm page modal & Local Stroage
+// if (ageConfirmed === "true") {
+   
+// } else {
+//     modal.style.display = "block";
+// }
+
+confirmYes.onclick = function() {
+    // User clicked "Yes" button
+    localStorage.setItem("ageConfirmed", "true");
+    modal.style.display = "none";      
+}
+
+confirmNo.onclick = function() {
+    // User clicked "No" button
+    localStorage.setItem("ageConfirmed", "false");
+    modal.style.display = "none";
+    window.location.href = "https://giphy.com/gifs/G7y1nEq4I251TKMFFZ/fullscreen";
+}
+// function showContent() {
+//     // Add the content of your cocktail site here
+//     document.body.innerHTML += "<section class='section'><div class='container'><h1 class='title'>Welcome to Make My Drink</h1></div></section>";
+//   }
+  
+//   function redirectToBypassPage() {
+//     window.location.href = "https://vpnpro.com/guides-and-tutorials/how-to-bypass-access-denied-website/";
+//   }
+
+modal.style.display = "block";
 
 // Event listener for spirit buttons
 spiritButtons.addEventListener('click', spiritButtonsHandler);

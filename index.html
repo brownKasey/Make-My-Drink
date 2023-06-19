@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800">
     <title>Make My Drink</title>
 </head>
-
+  
 <body class="wrapper">
     <header>
         <div class="hero-body">
@@ -26,6 +26,31 @@
             <p class="subtitle">FIT AND FUN</p>
         </div>
     </header>
+  
+  <button id="modal-button" class="button">Open Modal</button>
+  
+  <div id="modal-container" class="modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+            <div class="box">
+                <h2 class="title">Wait</h2>
+                <p>Please enter a cocktail name.</p>
+            </div>
+        </div>
+        <button class="modal-close is-large" aria-label="close"></button>
+    </div>
+  
+   <!-------------------- Confirmation Page ------------------->
+  
+ <div id="myModal" class="modal modal-large">
+  <div class="modal-content">
+      <h1>Age Confirmation</h1>
+      <h1>Are you 21 years of age or older?</h1>
+      <button id="confirmYes">Yes</button>
+      <button id="confirmNo">No</button>
+  </div>
+</div>
+  
     <!------------------------ Container for search bar, search filters and previous ----------------------->
     <section class="section is-medium search-container">
         <div class="field has-addons">
@@ -61,7 +86,7 @@
           </div> -->
     </footer>
     
-    <script src="./assets/js/script.js"></script>    
+    <script src="./assets/js/script.js"></script>  
 </body>
 
 </html>

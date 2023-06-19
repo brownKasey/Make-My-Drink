@@ -82,6 +82,7 @@ header {
 .results-container, .info-container {
     min-height: 500px;
     background-color: var(--secondary-color)
+
 }
 
 .card-container {
@@ -106,18 +107,16 @@ header {
     color: #ffff;
 }
 
-
-figure {
-    background-image: url(../images/cocktail_array.png);
-    background-size: cover;
+.modal {  /* added the modal to the search button.*/
+    display: none;
+    background-color: rgb(24, 17, 231);
+    background-image: url(./image1.jpg);
 }
 
-#search-button {
-    position: relative;
-    bottom: 150px;
-    left: 240px;
-}
-
+#modal-button{
+    display: none;
+  }
+  
 /*nutrition label*/
   .label {
     font-size: 16px;
@@ -130,9 +129,9 @@ figure {
     position: relative;
     top: -112px;
     right: 610px;
-
   }
-  .label header{
+  
+  .label header {
     font-size: 16px;
     height: 80px;
     
@@ -150,7 +149,6 @@ figure {
   .nutrition-paragraph{
     margin: 0;
     display: flex;
-
   }
   
   .divider {
