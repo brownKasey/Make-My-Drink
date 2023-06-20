@@ -267,3 +267,8 @@ min-height: 300px;
 }
 }
 
+.calorie-button{
+  min-width: 431px;
+background-color: var(--primary-color);
+color: #ffff;
+}
