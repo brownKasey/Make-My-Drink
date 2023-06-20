@@ -37,7 +37,7 @@ Clarence: https://github.com/SudoSapien21
 
 Kasey: https://github.com/brownKasey
 
-Monica: https://github.com/
+Monika: https://github.com/
 
 Sri: https://github.com/Sowchirukuri
 
