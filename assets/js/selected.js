@@ -212,3 +212,11 @@ function goBack() {
 goBackButton.addEventListener('click', goBack);
 
 getCocktailResults();
+
+// // tired to use local storage to redirect user back to the main page without going back to the confirm age page.
+// goBackButton.onclick = function() { 
+//     // Remove the ageConfirmed key from local storage
+//     localStorage.removeItem("go-back-button");
+//     // Redirect the user to the desired start over page
+//     window.location.href = "index.html";
+// }

@@ -20,6 +20,7 @@ header {
 
 .hero-body {
     padding: 10px;
+   
 }
 
 .hero-body p {
@@ -109,13 +110,35 @@ header {
 
 .modal {  /* added the modal to the search button.*/
     display: none;
-    background-color: rgb(24, 17, 231);
     background-image: url(./image1.jpg);
 }
 
 #modal-button{
-    display: none;
+    display: none;    
   }
+/* added color and increase the size to the conformation page. */
+  .confirmation-title {
+    color: rgb(250, 249, 249);
+    text-align: center;
+    font-size: 24px;
+  }
+  
+  .confirmation-text {
+    color: rgb(250, 249, 249);
+    text-align: center;
+    font-size: 18px;
+  }
+  .button-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .confirm-button {
+    font-size: 15px;
+    padding: 10px 20px;
+  }
+ 
+
   
 /*nutrition label*/
   .label {
