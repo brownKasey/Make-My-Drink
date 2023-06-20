@@ -1,10 +1,13 @@
+var drinkId = JSON.parse(localStorage.getItem('drinkID'));
 var selectedImage = document.querySelector('#selected-image');
 var ingredientBox = document.querySelector('#ingredient-box');
 var stepBox = document.querySelector('#step-box');
-var drinkId = JSON.parse(localStorage.getItem('drinkID'));
+var spiritInfoButton = document.querySelector('.ingredient-button');
+var spiritInput = document.querySelector('#spiritName');
+var spiritInfoEl = document.querySelector('.spirit-info');
 var goBackButton = document.querySelector('#go-back-button');
 
-var labelContainer = document.querySelector('.label');
+var labelContainer = document.querySelector('.labels');
 var calorieEl = document.querySelector('.calories');
 var totalFatEl = document.querySelector('.total-fat');
 var satFatEl = document.querySelector('.saturated-fat');
@@ -20,33 +23,30 @@ var calciumEl = document.querySelector('.calcium');
 var ironEl = document.querySelector('.iron');
 var potassiumEl = document.querySelector('.potassium');
 
-
-
-//monika's code
 function getCocktailResults() {
-    hideNutritionLabel();
+    //hideNutritionLabel();
     drinkId = JSON.parse(localStorage.getItem('drinkID'));
     var requestUrl = 'https://thecocktaildb.com/api/json/v2/9973533/lookup.php?i=' + drinkId;
     //console.log(requestUrl);
-
+    
     fetch(requestUrl)
     .then(function (response) {
       //console.log(response.status);
       return response.json();
-      // TO-DO: Add error handling
     })
     .then(function (data) {
         displayCocktails(data);
     });
 }
+
 function hideNutritionLabel(){
     labelContainer.classList.add('class', 'hidden');
 }
 
 function displayCocktails(data) {
+    //console.log(data);
 
     var drink = data.drinks[0];
-    //console.log(drink);
 
     // Create image element
     var imageEl = document.createElement('img');
@@ -54,7 +54,8 @@ function displayCocktails(data) {
     imageEl.setAttribute('src', drink.strDrinkThumb);
     selectedImage.append(imageEl);
 
-    // Create parallel arrays
+    // Create parallel arrays to match up measurements with ingredients
+    // Credit: Instructor Charlie Werness
     var ingredientsArray = [];
     var measuresArray = [];
     for (var property in drink) {
@@ -73,31 +74,36 @@ function displayCocktails(data) {
                 console.log(ingredientsArray[idx]);
             }
         }
+        //console.log('Testing' + measuresArray.length);
     }
 
     // Print each ingredient in list format
-    for (var i = 1; i < measuresArray.length; i++) {
+    for (var i = 1; i < ingredientsArray.length; i++) {
+        
         var bigString = '';
         //console.log("Item" + i + ":", ingredientsArray[i] + ":", + measuresArray[i]);
         var ingredientBullet = document.createElement('li');
+        if (measuresArray[i] == null) {
+            measuresArray[i] = '';
+        }
         ingredientBullet.textContent = (measuresArray[i] + ' ' + ingredientsArray[i]).toUpperCase();
         ingredientBox.append(ingredientBullet);
 
         var ingredient = measuresArray[i] + ' ' + ingredientsArray[i];
         bigString = bigString + ' ' + ingredient + ',';
         //console.log('Testing ingredient ' + i + ': ' + ingredient);
-
-        getNutritonalFacts(bigString);
-
+        //console.log(bigString);
+        
+        //getNutritonalFacts(bigString);
     }
 
     var instructionsArray = [];
     var instructions = drink.strInstructions;
-    console.log(instructions);
+    //console.log(instructions);
 
     // Split instructions string into sub-instruction strings
     instructionsArray = instructions.split('.');
-    console.log(instructionsArray);
+    //console.log(instructionsArray);
 
     for (var k = 0; k < instructionsArray.length; k++) {
         var stepBullet = document.createElement('li');
@@ -110,6 +116,8 @@ function displayCocktails(data) {
         }
     }
 }
+
+/*
 function getNutritonalFacts(bigString) {
     var apiUrl = 'https://trackapi.nutritionix.com/v2/natural/nutrients/'
     var ingredients = bigString;
@@ -117,8 +125,11 @@ function getNutritonalFacts(bigString) {
         method: "POST",
         headers: {
             'content-type': 'application/json',
-            'x-app-id': '5cd39341',
-            'x-app-key': 'bda13b00f69ec6525e8dcd738a635a2a',
+
+            //'x-app-id': '5cd39341',
+            'x-app-id': 'b1f1abf8',
+            //'x-app-key': 'bda13b00f69ec6525e8dcd738a635a2a',
+            'x-app-key': '03fb315dcb6058443303cebb1abf9c28',
             'x-remote-user-id': '0',
         },
         body: JSON.stringify({
@@ -137,7 +148,7 @@ function getNutritonalFacts(bigString) {
         var caloriesNum = 0;
         var totalFatNum = 0;
         var satFatNum = 0;
-        var transFatNum = 0;
+        //var transFatNum = 0;
         var cholNum = 0;
         var sodNum = 0;
         var totalCarbNum = 0;
@@ -163,8 +174,8 @@ function getNutritonalFacts(bigString) {
             satFatNum = Math.round(foodData.nf_saturated_fat + satFatNum);
             satFatEl.innerHTML = satFatNum + "g";
 
-            transFatNum = Math.round(foodData.full_nutrients[83].value + transFatNum);
-            transFatEl.innerHTML = transFatNum + "g";
+            //transFatNum = Math.round(foodData.full_nutrients[83].value + transFatNum);
+            //transFatEl.innerHTML = transFatNum + "g";
 
             cholNum = Math.round(foodData.nf_cholesterol + cholNum);
             cholEl.innerHTML = cholNum + "mg";
@@ -177,7 +188,7 @@ function getNutritonalFacts(bigString) {
 
             dietaryFiberNum = Math.round(foodData.nf_dietary_fiber + dietaryFiberNum);
             dietFiberEl.innerHTML = dietaryFiberNum + "g";
-          
+
             totalSugNum = Math.round(foodData.nf_sugars + totalSugNum);
             sugarsEl.innerHTML = totalSugNum + "g";
 
@@ -203,6 +214,52 @@ function getNutritonalFacts(bigString) {
 
     );
 };
+*/
+
+function getSpiritInfo() {
+    //console.log('Testing spiritInfoButton');
+
+    // Trim white space from both ends
+    var spiritName = spiritInput.value.trim();
+
+    // Clear search bar input upon click event
+    spiritInput.value = '';
+
+    if (spiritName) {
+        getSpiritInfoData(spiritName);
+    } else {
+        return;
+    }
+};
+
+function getSpiritInfoData(spiritName) {
+    //console.log(spiritName);
+
+    var requestUrl = 'https://thecocktaildb.com/api/json/v1/1/search.php?i=' + spiritName
+    //console.log(requestUrl);
+    
+    fetch(requestUrl)
+    .then(function (response) {
+      //console.log(response.status);
+      return response.json();
+    })
+    .then(function (data) {
+        displaySpiritInfo(data);
+    });
+}
+
+function displaySpiritInfo(data) {
+    //console.log(data);
+    
+    var spirit = data.ingredients[0];
+    //console.log(spirit);
+
+    // Create text box
+    var textEl = document.createElement('div');
+    textEl.classList.add('block');
+    textEl.textContent = spirit.strDescription;
+    spiritInfoEl.append(textEl);
+}
 
 function goBack() {
     //console.log("Testing go back button");
@@ -210,13 +267,6 @@ function goBack() {
 }
 
 goBackButton.addEventListener('click', goBack);
+spiritInfoButton.addEventListener('click', getSpiritInfo);
 
 getCocktailResults();
-
-// // tired to use local storage to redirect user back to the main page without going back to the confirm age page.
-// goBackButton.onclick = function() { 
-//     // Remove the ageConfirmed key from local storage
-//     localStorage.removeItem("go-back-button");
-//     // Redirect the user to the desired start over page
-//     window.location.href = "index.html";
-// }

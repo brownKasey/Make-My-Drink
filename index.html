@@ -18,30 +18,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,800">
     <title>Make My Drink</title>
 </head>
-  
+
 <body class="wrapper">
-    <header>
+    <!--------------------------------------- Header ------------------------------------------------->
+    <header class="main-header">
         <div class="hero-body">
-            
             <p class="title">Make My Drink</p>
             <p class="subtitle">FIT AND FUN</p>
         </div>
     </header>
- <!-------------------- Confirmation Page ------------------->
-   <div id="myModal" class="modal">
-    <div class="modal-content">
-      <h1 class="confirmation-title">Age Confirmation</h1>
-      <p class="confirmation-text">Are you 21 years of age or older?</p>
-      <div class="button-container">
-        <button id="confirmYes" class="confirm-button">Yes</button>
-        <button id="confirmNo" class="confirm-button">No</button>
-      </div>
-    </div>
-  </div>
-  
-  <button id="modal-button" class="button">Open Modal</button>
-  
-  <div id="modal-container" class="modal">
+
+    <!------------------------------------- Modal for Empty Input Search ----------------------------->
+    <button id="modal-button" class="button">Open Modal</button>
+    
+    <div id="modal-container" class="modal">
         <div class="modal-background"></div>
         <div class="modal-content">
             <div class="box">
@@ -51,13 +41,22 @@
         </div>
         <button class="modal-close is-large" aria-label="close"></button>
     </div>
+
+    <!--------------------------------------- Modal for Confirmation Page ---------------------------->
+    <div id="myModal" class="modal modal-large">
+        <div class="modal-content">
+            <h1>Age Confirmation</h1>
+            <h1>Are you 21 years of age or older?</h1>
+            <button id="confirmYes">Yes</button>
+            <button id="confirmNo">No</button>
+        </div>
+    </div>
   
-    
-    <!------------------------ Container for search bar, search filters and previous ----------------------->
+    <!------------------------ Container for search bar and search filters ---------------------------->
     <section class="section is-medium search-container">
         <div class="field has-addons">
             <p class="control is-expanded">
-                <input id="inputCocktail" class="input is-medium input-keydown" type="text" placeholder="Enter your drink name!">
+                <input id="inputCocktail" class="input is-medium" type="text" placeholder="Enter your drink name!">
             </p>
             <p class="control">
                 <button id="search-button" class="button is-medium">Search</button>
@@ -78,17 +77,9 @@
     </section>
     
     <footer>
-        <!--<div class="tabs is-centered">
-            <ul>
-              <li><a>Clarence</a></li>
-              <li><a>Kasey</a></li>
-              <li><a>Monika</a></li>
-              <li><a>Sri</a></li>
-            </ul>
-          </div> -->
     </footer>
     
-    <script src="./assets/js/script.js"></script>  
+    <script src="./assets/js/script.js"></script>    
 </body>
 
 </html>
