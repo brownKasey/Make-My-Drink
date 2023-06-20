@@ -1,269 +1,269 @@
 :root {
-    --primary-color: #1b1c1e;
-    --secondary-color: #feb71d;
-    --tertiary-color: #581913;
+  --primary-color: #1b1c1e;
+  --secondary-color: #feb71d;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Lexend', sans-serif;
+  font-family: 'Lexend', sans-serif;
 }
 
-header {
-    text-align: center;
-    height: 100px;
-    background-color: var(--primary-color);
+button {
+font-weight: bold;
+}
+
+h4 .subtitle {
+color: #ffff;
+}
+
+.main-header {
+  text-align: center;
+  height: 100px;
+  background-color: var(--primary-color);
 }
 
 .hero-body {
-    padding: 10px;
-   
+  padding: 10px;
 }
 
 .hero-body p {
-    color: var(--secondary-color);
+  color: var(--secondary-color);
 }
 
 .title {
-    font-size: 50px;
+  font-size: 50px;
 }
 
 .subtitle {
-    font-size: 23px;
+  font-size: 23px;
 }
 
+/* Set viewport-length background image */
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    background-image: url("../images/background-cocktail.png");
-    background-size: cover;
-    background-position: 50% 42%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url("../images/background-cocktail.png");
+  background-size: cover;
+  background-position: 50% 42%;
 }
 
 .wrapper2, .go-back-container {
-    background-image: url("../images/background-cocktail.png");
-    background-size: contain;
-    min-height: 30vh;
+  background-image: url("../images/background-cocktail.png");
+  background-size: contain;
+  min-height: 30vh;
 }
 
 .input {
-    color: black;
-    font-weight: bold;
-    background-color: white;
-    opacity: 85%;
-    text-align: center;
+  color: black;
+  font-weight: bold;
+  background-color: white;
+  opacity: 85%;
+  text-align: center;
 }
 
 .field {
-    margin: 135px auto 0;
-    width: 800px;
+  margin: 135px auto 0;
+  width: 760px;
 }
 
 .button {
-    background-color: var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 .spirit-button {
-    width: 120px;
+  width: 120px;
 }
 
-/* Hide container */
+/* Hide elements */
 .hidden {
-    display: none;
+  display: none;
 }
 
 .search-container {
-    height: 400px;
-}
-  
-.results-container, .info-container {
-    min-height: 500px;
-    background-color: var(--secondary-color)
-
+  height: 400px;
 }
 
 .card-container {
-    flex-wrap: wrap;
+  flex-wrap: wrap;
 }
 
 .card {
-    box-shadow: none; /* Remove white border around card */
-    border: 0px;
+  box-shadow: none; /* Remove white border around card */
 }
 
 .card-header {
-    background-color: var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 .card-header-title {
-    color: #ffff;
+  color: #ffff;
 }
 
 .recipe-button {
-    background-color: var(--secondary-color);
-    color: #ffff;
+  background-color: var(--secondary-color);
+  color: #ffff;
 }
 
-.modal {  /* added the modal to the search button.*/
-    display: none;
-    background-image: url(./image1.jpg);
+/* Added the modal to the search button */
+.modal { 
+display: none;
+background-color: rgb(24, 17, 231);
+background-image: url(../images/image1.jpg);
 }
 
-#modal-button{
-    display: none;    
-  }
-/* added color and increase the size to the conformation page. */
-  .confirmation-title {
-    color: rgb(250, 249, 249);
-    text-align: center;
-    font-size: 24px;
-  }
-  
-  .confirmation-text {
-    color: rgb(250, 249, 249);
-    text-align: center;
-    font-size: 18px;
-  }
-  .button-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
-  }
-  .confirm-button {
-    font-size: 15px;
-    padding: 10px 20px;
-  }
- 
-
-  
-/*nutrition label*/
-  .label {
-    font-size: 16px;
-    font-family: 'Open Sans', sans-serif;
-    border: 2px solid black;
-    width: 270px;
-    margin: 20px auto;
-    padding: 0 7px;
-    transform: scale(0.63);
-    position: relative;
-    top: -112px;
-    right: 610px;
-  }
-  
-  .label header {
-    font-size: 16px;
-    height: 80px;
-    
-  }
-
-  .label header h1 {
-    text-align: center;
-    margin: -4px 0;
-    letter-spacing: 0.15px;
-    font-size: 35px;
-  }
-  .label header .serving-size{
-    justify-content: space-between;
-  }
-  .nutrition-paragraph{
-    margin: 0;
-    display: flex;
-  }
-  
-  .divider {
-    border-bottom: 1px solid #888989;
-    margin: 2px 0;
-  }
-  
-  .bold {
-    font-weight: 800;
-  }
-  
-  .large {
-    height: 10px;
-  }
-  
-  .large, .medium {
-    background-color: black;
-    border: 0;
-  }
-  
-  .medium {
-    height: 5px;
-  }
-  
-  .small-text {
-    font-size: 0.85rem;
-  }
-  
-  
-  .calories-info {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-  }
-  
-  .calories-info h2 {
-    margin: 0;
-  }
-  
-  .left-container p {
-    margin: -5px -2px;
-    font-size: 2em;
-    font-weight: 700;
-  }
-  
-  .calories-info span {
-    margin: -7px -2px;
-    font-size: 2.4em;
-    font-weight: 700;
-  }
-  
-  .right {
-    justify-content: flex-end;
-  }
-  
-  .indent {
-    margin-left: 1em;
-  }
-  
-  .double-indent {
-    margin-left: 2em;
-  }
-  .daily-value{
-    justify-content: none;
-  }
-
-  .daily-value p:not(.no-divider) {
-    border-bottom: 1px solid #888989;
-  }
-  
-  .note {
-    font-size: 0.6rem;
-    margin: 5px 0;
-    padding-left: 8px;
-    padding-right: 8px;
-    text-indent: -8px;
-  }
-
-
-.info-boxes {
-    background-color: var(--primary-color);
-    color: rgb(253, 250, 250);
-    font-size: 15px;
+.info-section, .results-container {
+background-color: var(--secondary-color);
 }
 
-.info-boxes p {
-    color: rgb(253, 250, 250);
+/* Nutrition label */
+*.label {
+font-size: 16px;
+font-family: 'Open Sans', sans-serif;
+border: 2px solid black;
+/*width: 270px;
+margin: 20px auto;*/
+padding: 0 7px;
+/*transform: scale(0.63);
+position: relative;
+top: -112px;
+right: 610px; */
+}
+
+.label header{
+font-size: 16px;
+height: 80px;
+}
+
+.label header h1 {
+text-align: center;
+margin: -6px 0;
+letter-spacing: 0.15px;
+font-size: 31px;
+}
+
+.label header .serving-size {
+justify-content: space-between;
+}
+
+.nutrition-paragraph {
+margin: 0;
+display: flex;
+}
+
+.divider {
+border-bottom: 1px solid #888989;
+margin: 2px 0;
+}
+
+.bold {
+font-weight: 800;
+}
+
+.large {
+height: 10px;
+}
+
+.large, .medium {
+background-color: black;
+border: 0;
+}
+
+.medium {
+height: 5px;
+}
+
+.small-text {
+font-size: 0.85rem;
+}
+
+.calories-info {
+display: flex;
+justify-content: space-between;
+align-items: flex-end;
+}
+
+.calories-info h2 {
+margin: 0;
+}
+
+.left-container p {
+margin: -5px -2px;
+font-size: 2em;
+font-weight: 700;
+}
+
+.calories-info span {
+margin: -7px -2px;
+font-size: 2.4em;
+font-weight: 700;
+}
+
+.right {
+justify-content: flex-end;
+}
+
+.indent {
+margin-left: 1em;
+}
+
+.double-indent {
+margin-left: 2em;
+}
+
+.daily-value{
+justify-content: none;
+}
+
+.daily-value p:not(.no-divider) {
+border-bottom: 1px solid #888989;
+}
+
+.note {
+font-size: 0.6rem;
+margin: 5px 0;
+padding-left: 8px;
+padding-right: 8px;
+text-indent: -8px;
+}
+
+.info-text {
+color: #ffff;
 }
 
 .go-back-box {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+display: flex;
+justify-content: center;
+margin-bottom: 20px;
+}
+
+.spirit-info {
+font-size: 15px;
+}
+
+.ingredient-button {
+min-width: 431px;
+background-color: var(--primary-color);
+color: #ffff;
+}
+
+#modal-button{
+display: none;
+}
+
+#ingredient-box, #step-box {
+background-color: var(--primary-color);
+color: #ffff;
+padding: 10px;
+min-height: 300px;
+}
+
+@media screen and (max-width: 768px) {
+.field {
+  max-width: 295px; 
+}
 }
 
