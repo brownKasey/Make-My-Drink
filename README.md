@@ -13,22 +13,41 @@ The motivation for developing this web application was to help anyone who enjoys
 - [License](#license)
 
 ## Installation
-Load the webpage in any browser. Here's a link to the webpage: //link to webpage
+Load the webpage in any browser. Here's a link to the webpage: https://brownkasey.github.io/Make-My-Drink/
 
 ## Usage
 The web application lets you search for any alcoholic drink and get recipes for them and instructions on how to make them.
 
-Head to the webpage: //link to webpage
+Head to the webpage: https://brownkasey.github.io/Make-My-Drink/
 
-//add more information on how to use it at a later date
+Answer if you're 21 years old or not.
+
+If you are you will be greeted with the homepage that contains a search bar and buttons. In the search bar, you can search whatever drink you would like to know a recipe for. 
+
+![Homepage](./assets/images/MMD-Home-page.png)
+
+If you decide to click a button, you will be greeted to a list of results with drinks that are made using the alcohol listed on the button.
+
+![Search Results](./assets/images/Search-Results.png)
+
+When you find a drink you want to know the recipe for, click the "Get Recipe" button underneath the picture of the drink.
+
+You will then be brought to a page that looks something like this!
+
+![Get Recipe](./assets/images/Get-Recipe.png)
+
+If you scroll you will find a picture of the drink, a nutrition label, another search bar, and the recipe and instructions below that.
+
+In the search bar, you can search for any ingredients and it will tell you about any of the ingredients!
+
+The nutrition label will show you the nutrition values for the drink that you selected.
 
 
-// add screenshots of the page
 
-    ```md
-    ![alt text](assets/images/screenshot.png)
-    ```
-![alt text](assets/images/Make%20My%20Drink2.mp4)
+
+
+
+![Video](assets/images/Make%20My%20Drink2.mp4)
 
 ## Credits
 
