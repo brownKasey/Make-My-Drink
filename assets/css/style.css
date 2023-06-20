@@ -250,16 +250,20 @@ background-color: var(--primary-color);
 color: #ffff;
 }
 
+.recipe-section {
+  background-color: var(--primary-color);
+}
+
 #modal-button{
 display: none;
 }
 
 #ingredient-box, #step-box {
-background-color: var(--primary-color);
 color: #ffff;
 padding: 10px;
 min-height: 300px;
 }
+
 
 @media screen and (max-width: 768px) {
 .field {
