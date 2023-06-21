@@ -12,7 +12,7 @@ var backgroundImage = document.querySelector('.wrapper');
 var searchContainer = document.querySelector('.search-container');
 var spiritButtons = document.querySelector('.buttons');
 
-
+// Handle click event on search button
 function getUserInput(event) {
     event.preventDefault();
     //console.log('Testing search button');
@@ -25,12 +25,12 @@ function getUserInput(event) {
 
     if (cocktailName) {
         getCocktailData(cocktailName);
-    // TO-DO: Swap out alert for a modal
     } else {
         modalContainer.style.display = 'block'; // Replaced alert with modalContainer
     }
 };
 
+// Handle click event on spirit filter buttons
 function spiritButtonsHandler (event) {
     //console.log("Testing spirit button");
 
@@ -45,6 +45,7 @@ function spiritButtonsHandler (event) {
     }
 }
 
+// Fetch and parse data based on spirit 
 function getSpiritData(spirit) {
     var requestUrl = 'https://thecocktaildb.com/api/json/v2/9973533/filter.php?i=' + spirit;
     console.log(requestUrl);
@@ -64,6 +65,7 @@ function getSpiritData(spirit) {
     })
 }
 
+// Fetch and parse data based on cocktail name
 function getCocktailData(cocktail) {
     var requestUrl = 'https://thecocktaildb.com/api/json/v2/9973533/search.php?s=' + cocktail;
     fetch(requestUrl)
@@ -79,6 +81,7 @@ function getCocktailData(cocktail) {
     });
 }
 
+// Display cocktail results in card layout
 function displayCocktails(data) {
     // Clear previous search results from cards container
     cardsContainer.innerHTML = '';
@@ -132,11 +135,13 @@ function displayCocktails(data) {
 modalButton.addEventListener('click', () => {  
 });
 
+// Event listener x out of modal
 var closeButton = modalContainer.querySelector('.modal-close');
 closeButton.addEventListener('click', () => {
     modalContainer.style.display = 'none';
 });
 
+// Event listeners for age verification
 confirmYes.onclick = function() {
     // User clicked "Yes" button
     localStorage.setItem("ageConfirmed", "true");

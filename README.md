@@ -57,7 +57,7 @@ Clarence: https://github.com/SudoSapien21
 
 Kasey: https://github.com/brownKasey
 
-Monika: https://github.com/
+Monika: https://github.com/pinkhaze
 
 Sri: https://github.com/Sowchirukuri
 
@@ -69,6 +69,10 @@ The Cocktaildb: https://www.thecocktaildb.com/api.php
 
 Nutritionix: https://www.nutritionix.com/business/api
 
+CSS Framework Used:
+
+Bulma: https://bulma.io/
+
 Tutorials Used:
 Free Code Camp, helped with creating the nutrition label
 
@@ -78,6 +82,11 @@ README Template:
 
 https://coding-boot-camp.github.io/full-stack/github/professional-readme-guide
 
+Background Image Credit:
+
+Photo by Marvin Meyer at "https://unsplash.com/@marvelous?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+  
+Instructor Charlie Werness for help with setting up parallel arrays to concatenate measurement strings with ingredient strings in displayCocktails() function
 
 ## License
 Refer to LICENSE in the repo!

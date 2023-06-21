@@ -15,6 +15,7 @@ button {
 font-weight: bold;
 }
 
+/* Header styling */
 h4 .subtitle {
 color: #ffff;
 }
@@ -51,12 +52,14 @@ color: #ffff;
   background-position: 50% 42%;
 }
 
+/* Set background image to only search container dimensions */
 .wrapper2, .go-back-container {
   background-image: url("../images/background-cocktail.png");
   background-size: contain;
   min-height: 30vh;
 }
 
+/* Search bar and spirit filter buttons styling */
 .input {
   color: black;
   font-weight: bold;
@@ -87,6 +90,7 @@ color: #ffff;
   height: 400px;
 }
 
+/* Styling for card layout */
 .card-container {
   flex-wrap: wrap;
 }
@@ -115,11 +119,12 @@ background-color: rgb(24, 17, 231);
 background-image: url(../images/image1.jpg);
 }
 
+/* Styling for background color on both pages */
 .info-section, .results-container {
 background-color: var(--secondary-color);
 }
 
-/* Nutrition label */
+/* Nutrition label styling */
 *.label {
 font-size: 16px;
 font-family: 'Open Sans', sans-serif;
@@ -230,28 +235,41 @@ padding-right: 8px;
 text-indent: -8px;
 }
 
+/* Styling for ingredient search area */
+.spirit-info {
+  font-size: 15px;
+}
+  
+.ingredient-button {
+  min-width: 431px;
+  background-color: var(--primary-color);
+  color: #ffff;
+}
+
+/* Styling for recipe and instruction area */
 .info-text {
 color: #ffff;
 }
 
+.recipe-section {
+  background-color: var(--primary-color);
+}
+
+/* Styling for start over button container */
 .go-back-box {
 display: flex;
 justify-content: center;
 margin-bottom: 20px;
 }
 
-.spirit-info {
-font-size: 15px;
-}
-
-.ingredient-button {
-min-width: 431px;
-background-color: var(--primary-color);
-color: #ffff;
-}
-
 .recipe-section {
   background-color: var(--primary-color);
+}
+
+.calorie-button{
+  min-width: 431px;
+background-color: var(--primary-color);
+color: #ffff;
 }
 
 #modal-button{
@@ -264,15 +282,9 @@ padding: 10px;
 min-height: 300px;
 }
 
-
+/* Responsivness */
 @media screen and (max-width: 768px) {
 .field {
   max-width: 295px; 
 }
-}
-
-.calorie-button{
-  min-width: 431px;
-background-color: var(--primary-color);
-color: #ffff;
 }
