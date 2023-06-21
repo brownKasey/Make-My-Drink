@@ -2,12 +2,12 @@ var drinkId = JSON.parse(localStorage.getItem('drinkID'));
 var selectedImage = document.querySelector('#selected-image');
 var ingredientBox = document.querySelector('#ingredient-box');
 var stepBox = document.querySelector('#step-box');
-var spiritInfoButton = document.querySelector('.ingredient-button');
-var spiritInput = document.querySelector('#spiritName');
-var spiritInfoEl = document.querySelector('.spirit-info');
+var ingredientInfoButton = document.querySelector('.ingredient-button');
+var ingredientInput = document.querySelector('#spiritName');
+var ingredientInfoEl = document.querySelector('.spirit-info');
 var goBackButton = document.querySelector('#go-back-button');
-var calorieInput = document.querySelector('#calorieInput');
-var calorieButton = document.querySelector('.calorie-button');
+var nutritionInput = document.querySelector('#calorieInput');
+var nutritionInfoButton = document.querySelector('.calorie-button');
 
 var labelContainer = document.querySelector('.labels');
 var calorieEl = document.querySelector('.calories');
@@ -25,6 +25,7 @@ var calciumEl = document.querySelector('.calcium');
 var ironEl = document.querySelector('.iron');
 var potassiumEl = document.querySelector('.potassium');
 
+// Fetch and parse data from CocktailDb API
 function getCocktailResults() {
     //hideNutritionLabel();
     drinkId = JSON.parse(localStorage.getItem('drinkID'));
@@ -41,10 +42,12 @@ function getCocktailResults() {
     });
 }
 
-/*function hideNutritionLabel(){
+// Hide nutrition label if no results are fetched
+function hideNutritionLabel(){
     labelContainer.classList.add('class', 'hidden');
-}*/
+}
 
+// Display selected cocktail image, ingredients and instructions
 function displayCocktails(data) {
     //console.log(data);
 
@@ -76,7 +79,6 @@ function displayCocktails(data) {
                 console.log(ingredientsArray[idx]);
             }
         }
-        //console.log('Testing' + measuresArray.length);
     }
 
     // Print each ingredient in list format
@@ -88,25 +90,30 @@ function displayCocktails(data) {
         if (measuresArray[i] == null) {
             measuresArray[i] = '';
         }
+        // Uppercase string ingredients to fix inconsitent capitalization in response data
         ingredientBullet.textContent = (measuresArray[i] + ' ' + ingredientsArray[i]).toUpperCase();
         ingredientBox.append(ingredientBullet);
 
+        // FOR FUTURE DEVELOPMENT: concatenate all ingredients to form one string that will be passed into Nutritionix API 
+        /*
         var ingredient = measuresArray[i] + ' ' + ingredientsArray[i];
         bigString = bigString + ' ' + ingredient + ',';
-        //console.log('Testing ingredient ' + i + ': ' + ingredient);
-        //console.log(bigString);
+        console.log('Testing ingredient ' + i + ': ' + ingredient);
+        console.log(bigString);
         
-        //getNutritonalFacts(bigString);
+        getNutritonalFacts(bigString);
+        */
     }
 
+    // Split instructions string into sub-instruction strings
     var instructionsArray = [];
     var instructions = drink.strInstructions;
     //console.log(instructions);
 
-    // Split instructions string into sub-instruction strings
     instructionsArray = instructions.split('.');
     //console.log(instructionsArray);
 
+    // Fix inconsistent text formatting and print list of steps
     for (var k = 0; k < instructionsArray.length; k++) {
         var stepBullet = document.createElement('li');
         if (instructionsArray[k])  {
@@ -119,15 +126,33 @@ function displayCocktails(data) {
     }
 }
 
-/*
-function getNutritonalFacts(bigString) {
-    var apiUrl = 'https://trackapi.nutritionix.com/v2/natural/nutrients/'
-    var ingredients = bigString;
-    var myInit = {
-        method: "POST",
-        headers: {
-            'content-type': 'application/json',
+// Handle click event on nutrition info button
+function getCalorieInput() {
+    console.log('Testing calorie button');
 
+    // Trim white space from both ends
+    var nutritionName = nutritionInput.value.trim();
+
+    // Clear search bar input upon click event
+    nutritionInput.value = '';
+
+    if (nutritionName) {
+        getNutritonalFacts(nutritionName);
+    } else {
+        return
+    }
+};
+
+// Fetch and parse data from Nutritionix API
+// Extract nutrient values and display in nutrition label
+function getNutritonalFacts(nutritionName) {
+    console.log('testing ' + nutritionName);
+    var apiUrl = 'https://trackapi.nutritionix.com/v2/natural/nutrients/'
+     var myInit = {
+         method: "POST",
+         headers: {
+             'content-type': 'application/json',
+ 
             // Monika #2
             'x-app-id': '23d32bc2',
             // Kasey
@@ -138,6 +163,103 @@ function getNutritonalFacts(bigString) {
             // Kasey
             //'x-app-key': 'bda13b00f69ec6525e8dcd738a635a2a',
             // Monika #2
+            //'x-app-key': '03fb315dcb6058443303cebb1abf9c28',
+             'x-remote-user-id': '0',
+         },
+         body: JSON.stringify({
+             "query": nutritionName,
+         }),
+     };
+     fetch (apiUrl, myInit)
+     .then(function (response) {
+         return response.json();
+ 
+       })
+       .then(function (data) {
+         
+         var foodArray = data.foods;
+         //numbers that hold values
+         var caloriesNum = 0;
+         var totalFatNum = 0;
+         var satFatNum = 0;
+         //var transFatNum = 0;
+         var cholNum = 0;
+         var sodNum = 0;
+         var totalCarbNum = 0;
+         var dietaryFiberNum = 0;
+         //var totalSugNum = 0;
+         var proteinNum = 0;
+         var vitDNum = 0;
+         var calciumNum = 0;
+         var ironNum = 0;
+         var potassiumNum = 0;
+ 
+         //for loop that will look at all the elements and add each corresponding value to itself(data.food[0].nf_calories) 
+         //will also round the result 
+         //also displays the result to the page.
+         for (var i = 0; i < foodArray.length; i++){
+             var foodData = data.foods[i];
+             console.log(foodData);
+ 
+             caloriesNum = Math.round(foodData.nf_calories);
+             calorieEl.innerHTML = caloriesNum;
+ 
+             totalFatNum = Math.round(foodData.nf_total_fat);
+             totalFatEl.innerHTML = totalFatNum + "g";
+ 
+             satFatNum = Math.round(foodData.nf_saturated_fat);
+             satFatEl.innerHTML = satFatNum + "g";
+ 
+             //transFatNum = Math.round(foodData.full_nutrients[83].value + transFatNum);
+             //transFatEl.innerHTML = transFatNum + "g";
+ 
+             cholNum = Math.round(foodData.nf_cholesterol);
+             cholEl.innerHTML = cholNum + "mg";
+ 
+             sodNum = Math.round(foodData.nf_sodium);
+             sodiumEl.innerHTML = sodNum + "mg";
+ 
+             totalCarbNum = Math.round(foodData.nf_total_carbohydrate);
+             carbEl.innerHTML = totalCarbNum + "g";
+ 
+             dietaryFiberNum = Math.round(foodData.nf_dietary_fiber);
+             dietFiberEl.innerHTML = dietaryFiberNum + "g";
+ 
+             //totalSugNum = Math.round(foodData.nf_sugars + totalSugNum);
+             //sugarsEl.innerHTML = totalSugNum + "g";
+ 
+             proteinNum = Math.round(foodData.nf_protein);
+             proteinEl.innerHTML = proteinNum + "g";
+ 
+             vitDNum = Math.round(foodData.full_nutrients[35].value);
+             vitaminEl.innerHTML = vitDNum + "mcg";
+ 
+             calciumNum = Math.round(foodData.full_nutrients[19].value);
+             calciumEl.innerHTML = calciumNum + "mg";
+ 
+             ironNum = Math.round(foodData.full_nutrients[20].value);
+             ironEl.innerHTML = ironNum + "mg";
+             
+             potassiumNum = Math.round(foodData.full_nutrients[23].value);
+             potassiumEl.innerHTML = potassiumNum + "mg";
+             
+         }
+         //unhides the label only after all results have been found and are displayed in the correct html element
+         labelContainer.classList.remove('hidden');
+         }
+     );
+ };
+
+// FOR FUTURE DEVELOPMENT: Generate nutrition label for all ingredients in a cocktail
+/*
+function getNutritonalFacts(bigString) {
+    var apiUrl = 'https://trackapi.nutritionix.com/v2/natural/nutrients/'
+    var ingredients = bigString;
+    var myInit = {
+        method: "POST",
+        headers: {
+            'content-type': 'application/json',
+            'x-app-id': '23d32bc2',
             //'x-app-key': '03fb315dcb6058443303cebb1abf9c28',
             'x-remote-user-id': '0',
         },
@@ -174,6 +296,7 @@ function getNutritonalFacts(bigString) {
         for (var i = 0; i < foodArray.length; i++){
             var foodData = data.foods[i];
             console.log(foodData);
+
             caloriesNum = Math.round(foodData.nf_calories);
             calorieEl.innerHTML = caloriesNum;
 
@@ -225,26 +348,28 @@ function getNutritonalFacts(bigString) {
 };
 */
 
-function getSpiritInfo() {
+// Handle user click event on ingredient info button
+function getIngredientInput() {
     //console.log('Testing spiritInfoButton');
 
     // Trim white space from both ends
-    var spiritName = spiritInput.value.trim();
+    var ingredientName = ingredientInput.value.trim();
 
     // Clear search bar input upon click event
-    spiritInput.value = '';
+    ingredientInput.value = '';
 
-    if (spiritName) {
-        getSpiritInfoData(spiritName);
+    if (ingredientName) {
+        getIngredientData(ingredientName);
     } else {
         return;
     }
 };
 
-function getSpiritInfoData(spiritName) {
+// Fetch data for user entered ingredient
+function getIngredientData(ingredientName) {
     //console.log(spiritName);
 
-    var requestUrl = 'https://thecocktaildb.com/api/json/v1/1/search.php?i=' + spiritName
+    var requestUrl = 'https://thecocktaildb.com/api/json/v1/1/search.php?i=' + ingredientName
     //console.log(requestUrl);
     
     fetch(requestUrl)
@@ -253,11 +378,12 @@ function getSpiritInfoData(spiritName) {
       return response.json();
     })
     .then(function (data) {
-        displaySpiritInfo(data);
+        displayIngredientText(data);
     });
 }
 
-function displaySpiritInfo(data) {
+// Display ingredient lookup text
+function displayIngredientText(data) {
     //console.log(data);
     
     var spirit = data.ingredients[0];
@@ -267,135 +393,18 @@ function displaySpiritInfo(data) {
     var textEl = document.createElement('div');
     textEl.classList.add('block');
     textEl.textContent = spirit.strDescription;
-    spiritInfoEl.append(textEl);
+    ingredientInfoEl.append(textEl);
 }
 
+// Redirect to landing page
 function goBack() {
     //console.log("Testing go back button");
     window.location.href='./index.html'
 }
 
-function getCalorieInput() {
-    console.log('Testing calorie button');
-
-    // Trim white space from both ends
-    var calorieName = calorieInput.value.trim();
-
-    // Clear search bar input upon click event
-    calorieInput.value = '';
-
-    if (calorieName) {
-        getNutritonalFacts(calorieName);
-    } else {
-        return
-    }
-};
-
-function getNutritonalFacts(calorieName) {
-   console.log('testing ' + calorieName);
-   var apiUrl = 'https://trackapi.nutritionix.com/v2/natural/nutrients/'
-    var myInit = {
-        method: "POST",
-        headers: {
-            'content-type': 'application/json',
-
-            // Monika #2
-            'x-app-id': '23d32bc2',
-            // Kasey
-            //'x-app-id': '5cd39341',
-            // Monika #1
-            //'x-app-id': 'b1f1abf8',
-            'x-app-key': '4a90a025f5eb01e5a625a71e02f13682',
-            // Kasey
-            //'x-app-key': 'bda13b00f69ec6525e8dcd738a635a2a',
-            // Monika #2
-            //'x-app-key': '03fb315dcb6058443303cebb1abf9c28',
-            'x-remote-user-id': '0',
-        },
-        body: JSON.stringify({
-            "query": calorieName,
-        }),
-    };
-    fetch (apiUrl, myInit)
-    .then(function (response) {
-        return response.json();
-
-      })
-      .then(function (data) {
-        
-        var foodArray = data.foods;
-        //numbers that hold values
-        var caloriesNum = 0;
-        var totalFatNum = 0;
-        var satFatNum = 0;
-        //var transFatNum = 0;
-        var cholNum = 0;
-        var sodNum = 0;
-        var totalCarbNum = 0;
-        var dietaryFiberNum = 0;
-        //var totalSugNum = 0;
-        var proteinNum = 0;
-        var vitDNum = 0;
-        var calciumNum = 0;
-        var ironNum = 0;
-        var potassiumNum = 0;
-        //for loop that will look at all the elements and add each corresponding value to itself(data.food[0].nf_calories) 
-        //will also round the result 
-        //also displays the result to the page.
-        for (var i = 0; i < foodArray.length; i++){
-            var foodData = data.foods[i];
-            console.log(foodData);
-            caloriesNum = Math.round(foodData.nf_calories);
-            calorieEl.innerHTML = caloriesNum;
-
-            totalFatNum = Math.round(foodData.nf_total_fat);
-            totalFatEl.innerHTML = totalFatNum + "g";
-
-            satFatNum = Math.round(foodData.nf_saturated_fat);
-            satFatEl.innerHTML = satFatNum + "g";
-
-            //transFatNum = Math.round(foodData.full_nutrients[83].value + transFatNum);
-            //transFatEl.innerHTML = transFatNum + "g";
-
-            cholNum = Math.round(foodData.nf_cholesterol);
-            cholEl.innerHTML = cholNum + "mg";
-
-            sodNum = Math.round(foodData.nf_sodium);
-            sodiumEl.innerHTML = sodNum + "mg";
-
-            totalCarbNum = Math.round(foodData.nf_total_carbohydrate);
-            carbEl.innerHTML = totalCarbNum + "g";
-
-            dietaryFiberNum = Math.round(foodData.nf_dietary_fiber);
-            dietFiberEl.innerHTML = dietaryFiberNum + "g";
-
-            //totalSugNum = Math.round(foodData.nf_sugars + totalSugNum);
-            //sugarsEl.innerHTML = totalSugNum + "g";
-
-            proteinNum = Math.round(foodData.nf_protein);
-            proteinEl.innerHTML = proteinNum + "g";
-
-            vitDNum = Math.round(foodData.full_nutrients[35].value);
-            vitaminEl.innerHTML = vitDNum + "mcg";
-
-            calciumNum = Math.round(foodData.full_nutrients[19].value);
-            calciumEl.innerHTML = calciumNum + "mg";
-
-            ironNum = Math.round(foodData.full_nutrients[20].value);
-            ironEl.innerHTML = ironNum + "mg";
-            
-            potassiumNum = Math.round(foodData.full_nutrients[23].value);
-            potassiumEl.innerHTML = potassiumNum + "mg";
-            
-        }
-        //unhides the label only after all results have been found and are displayed in the correct html element
-        labelContainer.classList.remove('hidden');
-        }
-    );
-};
-
+// Event listeners
 goBackButton.addEventListener('click', goBack);
-spiritInfoButton.addEventListener('click', getSpiritInfo);
-calorieButton.addEventListener('click', getCalorieInput);
+ingredientInfoButton.addEventListener('click', getIngredientInput);
+nutritionInfoButton.addEventListener('click', getCalorieInput);
 
 getCocktailResults();

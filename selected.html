@@ -16,25 +16,27 @@
         <p class="subtitle">FIT AND FUN</p>
       </div>
   </header>
- <!--This is the one you need!-->
   <!------------------------------------ Section for start over button----------------------------------->
   <section class="section is-medium search-container go-back-container">
     <div class="container is-centered go-back-box">
         <button id="go-back-button" class="button is-large is-responsive">Start Over</button>
     </div>
   </section>
-
+  <!-------------------- Section for image, nutrition label, ingredient lookup and recipe --------------->
   <section class="section info-section">
     <div class="container">
       <div class="columns">
         <div class="column">
+            <!---------------------- Container for selected cocktail image ----------------------->
             <figure id="selected-image" class="image"></figure>
             <div>
+              <!------------------------ Search bar for nutrition lookup ------------------------->
               <input id="calorieInput" class="input" type="text" placeholder="Enter an ingredient to get the nutritional value!">
               <button class="button calorie-button is-responsive">Search</button>
             </div>
         </div>
         <div class="column">
+          <!---------------------------------- Nutrition label ------------------------------------>
           <div class="labels label">
             <header class="nutrition-header">
               <h1 class="bold">Nutrition Facts</h1>
@@ -103,6 +105,7 @@
         </div>
         </div>
         </div>
+        <!--------------------------- Search bar for ingredient information -------------------------> 
         <div class="column spirit-info">
           <div>
             <input id="spiritName" class="input" type="text" placeholder="Enter an ingredient to learn more!">
@@ -112,7 +115,7 @@
       </div>
     </div>
   </section>
-
+  <!------------------------------- Container for cocktail recipes and instructions ----------------->
   <section class="section recipe-section">
     <div class="columns">
       <div id="ingredient-box" class="container">
